@@ -3,13 +3,84 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Arial", "Georgia", sans-serif;
 }
 
-/* line 8, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
-.container {
-  position: relative;
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/arial");
+}
+
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/georgia");
+}
+
+/* line 24, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 3800px;
+  margin: 0 auto;
+}
+
+/* line 30, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.start-screen {
+  display: flex;
+  justify-content: center;
+  min-width: 1280px;
+  min-height: 910px;
+  background: radial-gradient(237.5% 111.8% at 0% 0%, #5b483a 0%, #262425 100%);
+}
+
+/* line 36, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.start-screen__container {
   width: 1280px;
-  height: 3796px;
+}
+
+/* line 39, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 728px;
+  padding: 180px 40px 0;
+}
+
+/* line 45, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.content__description {
+  position: relative;
+  width: 460px;
+  height: 322px;
+  top: 163px;
+}
+
+/* line 50, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.content__description_heading {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+/* line 55, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.content__description_text {
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+/* line 60, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.content__puppy_photo {
+  width: 698px;
+  height: 728px;
+  right: 0;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
