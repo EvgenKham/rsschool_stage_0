@@ -9,25 +9,53 @@
 <body>
   <div class="wrapper">
 
+    <!--Header с навигационным меню, который размещается поверх главной секции-->
     <header class="header">
-      <div class="header__container"></div>
+      <div class="header__container">
+        <div class="header__logo">
+          <h2 class="header__logo_title">Cozy House</h2>
+          <h3 class="header__logo_subtitle">Shelter for pets in Boston</h3>
+        </div>
+        <nav class="header__nav nav-menu">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__list-item">
+              <a href="#about">About the shelter</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="#our-pets">Our pets</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="#help">Help the shelter</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="#contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
       <main>
-        <!--Первая серкция с карттинкой и описанием-->
+        <!--Первая серкция с картинкой и описанием-->
         <section class="start-screen">
           <div class="start-screen__container">
+
             <div class="content">
+
               <div class="content__description">
                 <div class="content__description_heading">
-                  <h1>Not only people need a house</h1></div>
+                  <h2>Not only people need a house</h2></div>
                 <div class="content__description_text">
                   <h2>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</h2>
                 </div>
-                <div class="content__description_button btn">
-                  <button>Make a friend</button>
+                <div class="content__description_button">
+
+                  <button class="btn">
+                    <a href="#" class="btn__link">Make a friend</a>
+                  </button>
                 </div>
               </div>
+
               <div class="content__puppy">
                 <img class="content__puppy_photo" src="assets/images/start-screen-puppy.png" alt="main puppy">
               </div>
