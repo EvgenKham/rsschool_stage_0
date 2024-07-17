@@ -1,76 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shelter</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="wrapper">
-
-    <!--Header с навигационным меню, который размещается поверх главной секции-->
-    <header class="header">
-      <div class="header__container">
-        <div class="header__logo">
-          <h2 class="header__logo_title">Cozy House</h2>
-          <h3 class="header__logo_subtitle">Shelter for pets in Boston</h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shelter</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!--Header с навигационным меню, который размещается поверх главной секции-->
+      <header class="header">
+        <div class="header__container">
+          <div class="header__logo">
+            <h2 class="header__logo_title">Cozy House</h2>
+            <h2 class="header__logo_subtitle">Shelter for pets in Boston</h2>
+          </div>
+          <nav class="header__nav nav-menu">
+            <ul class="nav-menu__list">
+              <li class="nav-menu__list-item">
+                <a href="#about">About the shelter</a>
+              </li>
+              <li class="nav-menu__list-item">
+                <a href="#our-pets">Our pets</a>
+              </li>
+              <li class="nav-menu__list-item">
+                <a href="#help">Help the shelter</a>
+              </li>
+              <li class="nav-menu__list-item">
+                <a href="#contacts">Contacts</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav class="header__nav nav-menu">
-          <ul class="nav-menu__list">
-            <li class="nav-menu__list-item">
-              <a href="#about">About the shelter</a>
-            </li>
-            <li class="nav-menu__list-item">
-              <a href="#our-pets">Our pets</a>
-            </li>
-            <li class="nav-menu__list-item">
-              <a href="#help">Help the shelter</a>
-            </li>
-            <li class="nav-menu__list-item">
-              <a href="#contacts">Contacts</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+      </header>
 
       <main>
         <!--Первая серкция с картинкой и описанием-->
         <section class="start-screen">
           <div class="start-screen__container">
-
-            <div class="content">
-
-              <div class="content__description">
-                <div class="content__description_heading">
-                  <h2>Not only people need a house</h2></div>
-                <div class="content__description_text">
-                  <h2>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</h2>
+            <div class="content-first">
+              <div class="content-first__description">
+                <div class="content-first__description_heading">
+                  <h1>Not only people need a house</h1>
                 </div>
-                <div class="content__description_button">
-
+                <div class="content-first__description_text">
+                  <p>
+                    We offer to give a chance to a little and nice puppy with an
+                    extremely wide and open heart. He or she will love you more
+                    than anybody else in the world, you will see!
+                  </p>
+                </div>
+                <div class="content-first__description_button">
                   <button class="btn">
                     <a href="#" class="btn__link">Make a friend</a>
                   </button>
                 </div>
               </div>
 
-              <div class="content__puppy">
-                <img class="content__puppy_photo" src="assets/images/start-screen-puppy.png" alt="main puppy">
+              <div class="content-first__puppy">
+                <img
+                  class="content-first__puppy_photo"
+                  src="assets/images/start-screen-puppy.png"
+                  alt="main puppy"
+                />
               </div>
             </div>
           </div>
-
         </section>
-        <section class="about"></section>
+
+        <!--Вторая секция About-->
+        <section class="about">
+          <div class="about__container">
+            <div class="content-second">
+              <div class="content-second__picture">
+                <img src="assets/images/about-pets.png" alt="cat and dog" />
+              </div>
+              <div class="content-second__description">
+                <div class="content-second__description_heading">
+                  <h2>About the shelter “Cozy House”</h2>
+                </div>
+                <div class="content-second__description_text">
+                  <p>
+                    Currently we have 121 dogs and 342 cats on our hands and
+                    statistics show that only 20% of them will find a family.
+                    The others will continue to live with us and will be waiting
+                    for a lucky chance to become dearly loved.
+                  </p>
+                </div>
+                <div class="content-second__description_text">
+                  <p>
+                    We feed our wards with the best food and make sure that they
+                    do not get sick, feel comfortable (including
+                    psychologically) and well. We are supported by 87 volunteers
+                    and 28 employees of various skill levels. About 12% of the
+                    animals are taken by the shelter staff. Taking care of the
+                    animals, they become attached to the pets and would hardly
+                    ever leave them alone.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="pets"></section>
         <section class="help"></section>
         <section class="donation"></section>
       </main>
 
       <footer class="footer"></footer>
-
-  </div>
-</body>
+    </div>
+  </body>
 </html>

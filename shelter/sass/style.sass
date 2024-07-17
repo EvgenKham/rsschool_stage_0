@@ -6,6 +6,9 @@ body
   font-weight: regular
   scroll-behavior: smooth
 
+h1,h2, h3,h4,h5,h6
+  margin: 0
+
 @font-face
   font-family: "Arial"
   src: url("../assets/fonts/arial/arial-regular.ttf")
@@ -43,6 +46,8 @@ $color-primary-light: #fddcc4
 $color-light-s: #fafafa
 $color-dark-s: #cdcdcd
 $color-dark-3xl: #292929
+$color-dark-l: #545454
+$color-dark-xl: #4C4C4C
 $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%)
 
 .wrapper
@@ -115,7 +120,7 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
   &__container
     padding: 180px 40px 0
 
-.content
+.content-first
   position: relative
   width: 1200px
   height: 728px
@@ -166,3 +171,42 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
   &:hover
     background: $color-primary-light
 
+.about
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 588px
+  background: $color-light-xl
+  &__container
+    display: flex
+    align-items: center
+    width: 1200px
+
+.content-second
+  display: flex
+  width: 100%
+  justify-content: space-around
+  align-items: center
+  &__picture
+    width: 300px
+    height: 408px
+  &__description
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 430px
+    height: 380px
+    &_heading
+      font-family: Georgia
+      font-weight: 400
+      font-size: 35px
+      line-height: 130%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+    &_text-1
+      font-family: Arial
+      font-weight: 400
+      font-size: 15px
+      line-height: 160%
+      color: $color-dark-xl
