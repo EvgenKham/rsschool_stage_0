@@ -102,7 +102,67 @@
             </div>
           </div>
         </section>
-        <section class="pets"></section>
+
+        <!--Секция с питомцами в виде слайдера-->
+        <section class="pets">
+          <div class="pets__container">
+            <div class="content-third">
+
+              <div class="content-third__description">
+                <p>Our friends who are looking for a house</p>
+              </div>
+              <!--Контейнер для стрелочных кнопок и слайдера-->
+              <div class="content-third__content">
+
+                <div class="content-third__content_button arrow-left">
+                  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="50" height="50" rx="25" stroke="#F1CDB3" stroke-width="2" />
+                    <path d="M33 25V27H22V29L19 26L22 23V25H33Z" fill="#292929" />
+                  </svg>
+                </div>
+                <!--Слайдер с карточками животных-->
+                <div class="content-third__slider">
+                  <div class="content-third__slider_card pet">
+                    <img class="pet_image" src="assets/images/pets-katrine.png" alt="cat-katrine-picture">
+                    <p class="pet_name">Katrine</p>
+                    <button class="pet_button btn">
+                      <a href="#" class="btn__link">Learn more</a>
+                    </button>
+                  </div>
+
+                  <div class="content-third__slider_card pet">
+                    <img class="pet_image" src="assets/images/pets-jennifer.png" alt="dog-jennifer-picture">
+                    <p class="pet_name">Jennifer</p>
+                    <button class="pet_button btn">
+                      <a href="#" class="btn__link">Learn more</a>
+                    </button>
+                  </div>
+
+                  <div class="content-third__slider_card pet">
+                    <img class="pet_image" src="assets/images/pets-woody.png" alt="dog-woody-picture">
+                    <p class="pet_name">Woody</p>
+                    <button class="pet_button btn">
+                      <a href="#" class="btn__link">Learn more</a>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="content-third__content_button arrow-right">
+                  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="51" y="51" width="50" height="50" rx="25" transform="rotate(-180 51 51)" stroke="#F1CDB3" stroke-width="2" />
+                    <path d="M19 27V25H30V23L33 26L30 29V27H19Z" fill="#292929" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="content-third__button">
+                <button class="content-third__button_pets btn">
+                  <a href="#" class="btn__link">Get to know the rest</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="help"></section>
         <section class="donation"></section>
       </main>

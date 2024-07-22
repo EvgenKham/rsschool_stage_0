@@ -6,6 +6,7 @@ body
   font-weight: regular
   scroll-behavior: smooth
 
+
 h1,h2, h3,h4,h5,h6
   margin: 0
 
@@ -44,6 +45,7 @@ $color-light-xl: #ffffff
 $color-primary: #f1cdb3
 $color-primary-light: #fddcc4
 $color-light-s: #fafafa
+$color-light-l: #f6f6f6
 $color-dark-s: #cdcdcd
 $color-dark-3xl: #292929
 $color-dark-l: #545454
@@ -107,9 +109,11 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       text-decoration: none
       &:hover
         color: $color-light-s
+        transition: all 0.3s
       &:focus //active
         color: $color-light-s
         border-bottom: 3px $color-primary solid
+        transition: all 0.2s
 
 .start-screen
   display: flex
@@ -152,6 +156,8 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
 
 .btn
   display: inline-flex
+  align-items: center
+  justify-content: center
   width: 207px
   height: 52px
   background: $color-primary
@@ -160,7 +166,6 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
   padding: 15px 45px
   cursor: pointer
   &__link
-    color: $color-dark-3xl
     font-family: Georgia
     font-weight: 400
     font-size: 17px
@@ -168,8 +173,10 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     line-height: 130%
     letter-spacing: 0.06em
     text-decoration: none
+    color: $color-dark-3xl
   &:hover
     background: $color-primary-light
+    transition: all 0.3s
 
 .about
   display: flex
@@ -210,3 +217,76 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       font-size: 15px
       line-height: 160%
       color: $color-dark-xl
+
+.pets
+  display: relative
+  padding: 80px 40px 100px
+  min-width: 1280px
+  min-height: 877px
+  background: $color-light-l
+  &__container
+    display: flex
+    justify-content: center
+
+.content-third
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 700px
+  &__description
+    width: 400px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+  &__content
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 1200px
+  &__slider
+    display: flex
+    justify-content: space-between
+    width: 990px
+    &_card
+      display: flex
+      flex-direction: column
+      align-items: center
+      background: $color-light-s
+      border-radius: 9px
+      width: 270px
+      height: 435px
+      &:hover
+        background: $color-light-xl
+        box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
+        transition: all 0.3s
+  &__button_pets
+    width: 260px
+
+.pet
+  &_image
+    margin-bottom: 30px
+  &_name
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    margin: 0
+    margin-bottom: 30px
+  &_button
+    border: 2px solid
+    color: $color-primary
+    background: $color-light-xl
+    margin-bottom: 30px
+    &:hover
+      border: none
+      background: color-primary-light
+
