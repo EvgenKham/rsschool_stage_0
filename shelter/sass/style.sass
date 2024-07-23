@@ -219,8 +219,8 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       color: $color-dark-xl
 
 .pets
-  display: relative
-  padding: 80px 40px 100px
+  display: flex
+  justify-content: center
   min-width: 1280px
   min-height: 877px
   background: $color-light-l
@@ -235,6 +235,7 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
   align-items: center
   width: 1200px
   height: 700px
+  padding: 80px 40px 100px
   &__description
     width: 400px
     height: 90px
@@ -245,6 +246,8 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     letter-spacing: 0.06em
     text-align: center
     color: $color-dark-l
+    &_item
+      margin: 0
   &__content
     display: flex
     align-items: center
@@ -266,7 +269,7 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
         background: $color-light-xl
         box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
         transition: all 0.3s
-  &__button_pets
+  &__button_pet
     width: 260px
 
 .pet
@@ -286,7 +289,17 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     color: $color-primary
     background: $color-light-xl
     margin-bottom: 30px
+    cursor: pointer
     &:hover
       border: none
       background: color-primary-light
 
+.arrow-left svg
+    cursor: pointer
+    &:hover
+      fill: $color-primary-light
+
+.arrow-right svg
+    cursor: pointer
+    &:hover
+      fill: $color-primary-light
