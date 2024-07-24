@@ -303,3 +303,64 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     cursor: pointer
     &:hover
       fill: $color-primary-light
+
+.help
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 610px
+  background: $color-light-xl
+  &__container
+    display: flex
+    justify-content: center
+
+.content-fourth
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 430px
+  padding: 80px 40px 100px
+  &__description
+    width: 310px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    &_item
+      margin: 0
+  &__list-container
+    display: flex
+    width: 1030px
+    height: 290px
+
+.helper
+  &__list
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 55px 120px
+    padding: 0
+    margin: 0
+  &__list-item
+    font-size: 18px
+    list-style: none
+    &_name
+      margin: 0
+      text-align: center
+    &_icon
+      display: block
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: 30px
+    &:nth-child(6)
+      margin-left: 84px
+    &:nth-child(9)
+      margin-right: 84px
+
