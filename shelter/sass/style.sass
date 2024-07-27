@@ -10,6 +10,9 @@ body
 h1,h2, h3,h4,h5,h6
   margin: 0
 
+p
+  margin: 0
+
 @font-face
   font-family: "Arial"
   src: url("../assets/fonts/arial/arial-regular.ttf")
@@ -50,6 +53,7 @@ $color-dark-s: #cdcdcd
 $color-dark-3xl: #292929
 $color-dark-l: #545454
 $color-dark-xl: #4C4C4C
+$color-dark-m: #B2B2B2
 $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%)
 
 .wrapper
@@ -148,6 +152,8 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       margin-bottom: 42px
   &__puppy
     position: absolute
+    width: 698px
+    height: 728px
     right: 0
     top: 0
     &_photo
@@ -363,4 +369,164 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       margin-left: 84px
     &:nth-child(9)
       margin-right: 84px
+
+.donation
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 462px
+  background: $color-light-l
+  &__container
+    display: flex
+    justify-content: center
+    padding-top: 80px
+    padding-bottom: 100px
+
+.content-fifth
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 915px
+  height: 282px
+  &__puppy
+    width: 505px
+    height: 261px
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 380px
+    height: 282px
+    &_heading
+      width: 300px
+    &_info
+      font-family: Arial
+      font-style: italic
+      font-weight: 400
+      font-size: 12px
+      line-height: 150%
+      color: $color-dark-m
+
+.text
+  &_head
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    color: $color-dark-l
+  &_subhead
+    font-family: Georgia
+    font-weight: 400
+    font-size: 15px
+    line-height: 110%
+    letter-spacing: 0.06em
+    color: $color-dark-l
+
+.credit-card
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 9px
+  width: 349px
+  height: 43px
+  background: $color-primary
+  &__content
+    display: flex
+    justify-content: space-between
+    width: 319px
+    height: 23px
+    &_image
+    &_number
+      font-family: Georgia
+      font-weight: 400
+      font-size: 20px
+      line-height: 115%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+
+.footer
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 350px
+  background: $start-screen-gradient-background
+  &__container
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    width: 1200px
+
+.content-footer
+  display: flex
+  justify-content: space-between
+  width: 1200px
+  &__contacts
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 278px
+    height: 234px
+    margin-top: 16px
+  &__location
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-top: 16px
+    width: 302px
+    height: 234px
+  &__image
+    width: 300px
+    height: 310px
+
+.footer-heading_text
+  font-family: Georgia
+  font-weight: 400
+  font-size: 34px
+  line-height: 130%
+  letter-spacing: 0.06em
+  color: $color-light-xl
+
+.email__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
+.tel__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
+.place__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
 
