@@ -1,0 +1,717 @@
+body
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: "Georgia"
+  font-weight: regular
+  scroll-behavior: smooth
+
+
+h1,h2, h3,h4,h5,h6
+  margin: 0
+
+p
+  margin: 0
+
+@font-face
+  font-family: "Arial"
+  src: url("../assets/fonts/arial/arial-regular.ttf")
+  font-weight: regular
+  font-style: normal
+
+@font-face
+  font-family: "Arial"
+  src: url("../assets/fonts/arial/arial-italic.ttf")
+  font-weight: italic
+  font-style: italic
+
+@font-face
+  font-family: "Georgia"
+  src: url("../assets/fonts/georgia/georgia-regular.ttf")
+  font-weight: regular
+  font-style: normal
+
+@font-face
+  font-family: "Georgia"
+  src: url("../assets/fonts/georgia/georgia-bold.ttf")
+  font-weight: bold
+  font-style: normal
+
+@font-face
+  font-family: "Georgia"
+  src: url("../assets/fonts/georgia/georgia-italic.ttf")
+  font-weight: italic
+  font-style: italic
+
+@font-face
+  font-family: "Georgia"
+  src: url("../assets/fonts/georgia/georgia-bold-italic.ttf")
+  font-weight: 600
+  font-style: italic
+
+$main-color: #e5e5e5
+$color-light-xl: #ffffff
+$color-primary: #f1cdb3
+$color-primary-light: #fddcc4
+$color-light-s: #fafafa
+$color-light-l: #f6f6f6
+$color-dark-s: #cdcdcd
+$color-dark-3xl: #292929
+$color-dark-l: #545454
+$color-dark-xl: #4C4C4C
+$color-dark-m: #B2B2B2
+$start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png), radial-gradient(237.5% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%)
+
+//Styles for main-page
+
+.wrapper
+  position: relative
+  height: 3800px
+  margin: 0 auto
+
+.header
+  position: absolute
+  width: 1200px
+  height: 60px
+  top: 30px
+  left: 0
+  right: 0
+  margin-left: auto
+  margin-right: auto
+  &__container
+    display: flex
+    justify-content: space-between
+  &__logo
+    &_title
+      display: block
+      font-family: Georgia
+      font-weight: 400
+      font-size: 32px
+      line-height: 110%
+      letter-spacing: 0.06em
+      color: $color-primary
+      margin-top: 0
+      margin-bottom: 10px
+    &_subtitle
+      display: block
+      font-family: Arial
+      font-weight: 400
+      font-size: 13px
+      letter-spacing: 0.1em
+      color: $color-light-xl
+      margin: 0
+  &__nav
+    width: 443px
+
+.nav-menu
+  &__list
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    padding: 0
+  &__list-item
+    font-size: 18px
+    list-style: none
+    a
+      font-family: Arial
+      font-weight: 400
+      font-size: 15px
+      line-height: 160%
+      color: $color-dark-s
+      text-decoration: none
+      &:hover
+        color: $color-light-s
+        transition: all 0.3s
+      &:active
+        color: $color-light-s
+        border-bottom: 3px $color-primary solid
+        transition: all 0.2s
+
+.start-screen
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 910px
+  background: $start-screen-gradient-background
+  &__container
+    padding: 180px 40px 0
+
+.content-first
+  position: relative
+  width: 1200px
+  height: 728px
+  &__description
+    position: absolute
+    width: 460px
+    margin-top: 163px
+    &_heading
+      margin-bottom: 42px
+    &_text
+      font-family: Arial
+      font-weight: italic
+      font-size: 15px
+      line-height: 160%
+      color: $color-dark-s
+      margin-bottom: 42px
+  &__puppy
+    position: absolute
+    width: 698px
+    height: 728px
+    right: 0
+    top: 2px
+    &_photo
+      width: 698px
+      height: 728px
+
+.head_main
+  font-family: Georgia
+  font-style: 800
+  font-size: 44px
+  line-height: 130%
+  color: $color-light-xl
+
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: 207px
+  height: 52px
+  background: $color-primary
+  border-radius: 100px
+  border: none
+  padding: 15px 45px
+  cursor: pointer
+  &__link
+    font-family: Georgia
+    font-weight: 400
+    font-size: 17px
+    white-space: nowrap
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-decoration: none
+    color: $color-dark-3xl
+  &:hover
+    background: $color-primary-light
+    transition: all 0.3s
+
+.about
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 588px
+  background: $color-light-xl
+  &__container
+    display: flex
+    align-items: center
+    width: 1200px
+
+.content-second
+  display: flex
+  width: 100%
+  justify-content: space-around
+  align-items: center
+  &__picture
+    width: 300px
+    height: 408px
+  &__description
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 430px
+    height: 380px
+    &_heading
+      font-family: Georgia
+      font-weight: 400
+      font-size: 35px
+      line-height: 130%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+    &_text-1
+      font-family: Arial
+      font-weight: 400
+      font-size: 15px
+      line-height: 160%
+      color: $color-dark-xl
+
+.pets
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 877px
+  background: $color-light-l
+  &__container
+    display: flex
+    justify-content: center
+
+.content-third
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 700px
+  padding: 80px 40px 100px
+  &__description
+    width: 400px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    &_item
+      margin: 0
+  &__content
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 1200px
+  &__slider
+    display: flex
+    justify-content: space-between
+    width: 990px
+    &_card
+      display: flex
+      flex-direction: column
+      align-items: center
+      background: $color-light-s
+      border-radius: 9px
+      width: 270px
+      height: 435px
+      &:hover
+        background: $color-light-xl
+        box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
+        transition: all 0.3s
+  &__button_pet
+    width: 260px
+
+.pet
+  &_image
+    margin-bottom: 30px
+  &_name
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    margin: 0
+    margin-bottom: 30px
+  &_button
+    border: 2px solid
+    color: $color-primary
+    background: $color-light-xl
+    margin-bottom: 30px
+    cursor: pointer
+    &:hover
+      border: none
+      background: color-primary-light
+
+.arrow-left svg
+    cursor: pointer
+    &:hover
+      fill: $color-primary-light
+
+.arrow-right svg
+    cursor: pointer
+    &:hover
+      fill: $color-primary-light
+
+.help
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 610px
+  background: $color-light-xl
+  &__container
+    display: flex
+    justify-content: center
+
+.content-fourth
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 430px
+  padding: 80px 40px 100px
+  &__description
+    width: 310px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    &_item
+      margin: 0
+  &__list-container
+    display: flex
+    width: 1030px
+    height: 290px
+
+.helper
+  &__list
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    flex-wrap: wrap
+    gap: 55px 120px
+    padding: 0
+    margin: 0
+  &__list-item
+    font-size: 18px
+    list-style: none
+    &_name
+      margin: 0
+      text-align: center
+    &_icon
+      display: block
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: 30px
+    &:nth-child(6)
+      margin-left: 84px
+    &:nth-child(9)
+      margin-right: 84px
+
+.donation
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 462px
+  background: $color-light-l
+  &__container
+    display: flex
+    justify-content: center
+    padding-top: 80px
+    padding-bottom: 100px
+
+.content-fifth
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 915px
+  height: 282px
+  &__puppy
+    width: 505px
+    height: 261px
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 380px
+    height: 282px
+    &_heading
+      width: 300px
+    &_info
+      font-family: Arial
+      font-style: italic
+      font-weight: 400
+      font-size: 12px
+      line-height: 150%
+      color: $color-dark-m
+
+.text
+  &_head
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    color: $color-dark-l
+  &_subhead
+    font-family: Georgia
+    font-weight: 400
+    font-size: 15px
+    line-height: 110%
+    letter-spacing: 0.06em
+    color: $color-dark-l
+
+.credit-card
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 9px
+  width: 349px
+  height: 43px
+  background: $color-primary
+  &__content
+    display: flex
+    justify-content: space-between
+    width: 319px
+    height: 23px
+    &_image
+    &_number
+      font-family: Georgia
+      font-weight: 400
+      font-size: 20px
+      line-height: 115%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+
+.footer
+  display: flex
+  justify-content: center
+  min-width: 1280px
+  min-height: 350px
+  background: $start-screen-gradient-background
+  &__container
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    width: 1200px
+
+.content-footer
+  display: flex
+  justify-content: space-between
+  width: 1200px
+  &__contacts
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 278px
+    height: 234px
+    margin-top: 16px
+  &__location
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-top: 16px
+    width: 302px
+    height: 234px
+  &__image
+    width: 300px
+    height: 310px
+
+.footer-heading_text
+  font-family: Georgia
+  font-weight: 400
+  font-size: 34px
+  line-height: 130%
+  letter-spacing: 0.06em
+  color: $color-light-xl
+
+.email__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
+.tel__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
+.place__content
+  display: flex
+  &_icon
+    margin-right: 20px
+  &_text
+    display: flex
+    align-items: center
+    font-family: Georgia
+    font-weight: 400
+    font-size: 20px
+    line-height: 115%
+    letter-spacing: 0.06em
+    color: $color-primary
+
+//Styles for pets-page
+
+.wrapper-pets
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 1812px
+
+.header-our-pets
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 120px
+  background-color: $color-light-xl
+  &__container
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    width: 1200px
+    height: 60px
+  &__content
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 1200px
+    height: 60px
+  &__logo
+    &_title
+      display: block
+      font-family: Georgia
+      font-weight: 400
+      font-size: 32px
+      line-height: 110%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+      margin-top: 0
+      margin-bottom: 10px
+    &_subtitle
+      display: block
+      font-family: Arial
+      font-weight: 400
+      font-size: 13px
+      letter-spacing: 0.1em
+      color: $color-dark-3xl
+      margin: 0
+  &__nav
+    width: 443px
+
+.our-pets__nav_list-item a
+      color: $color-dark-l
+      &:hover
+        color: $color-dark-3xl
+      &:active
+        color: $color-dark-l
+
+.page-pets
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 1342px
+  background-color: $color-light-l
+  &__container
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 1200px
+    height: 1162px
+
+.contant-page-pets
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 1162px
+  &__heading
+    width: 400px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    &_item
+      margin: 0
+
+.page-pets
+  &__cards-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-content: space-around
+    height: 930px
+    &_card
+      display: flex
+      flex-direction: column
+      align-items: center
+      background: $color-light-s
+      border-radius: 9px
+      width: 270px
+      height: 435px
+      &:hover
+        background: $color-light-xl
+        box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
+        transition: all 0.3s
+
+.pagination
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 340px
+  height: 52px
+  &__btn-container
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 52px
+    height: 52px
+
+
+@mixin btnPagination()
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 2px solid $color-dark-s
+  border-radius: 100px
+  padding: 14px 21px
+  width: 52px
+  height: 52px
+  text-decoration: none
+
+@mixin symbolBtnPagination()
+  font-family: Georgia
+  font-weight: 400
+  font-size: 20px
+  line-height: 115%
+  letter-spacing: 0.06em
+  text-align: center
+  text-decoration: none
+
+.pagination-btn__begining
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-s
+
+.pagination-btn__last
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-s
+
+.pagination-btn__current
+  @include btnPagination()
+  &:hover
+    background: $color-primary
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
+
+.pagination-btn__next
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
+
+.pagination-btn__end
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
+
