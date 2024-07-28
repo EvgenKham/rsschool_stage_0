@@ -43,6 +43,12 @@ p
   font-weight: italic
   font-style: italic
 
+@font-face
+  font-family: "Georgia"
+  src: url("../assets/fonts/georgia/georgia-bold-italic.ttf")
+  font-weight: 600
+  font-style: italic
+
 $main-color: #e5e5e5
 $color-light-xl: #ffffff
 $color-primary: #f1cdb3
@@ -54,7 +60,9 @@ $color-dark-3xl: #292929
 $color-dark-l: #545454
 $color-dark-xl: #4C4C4C
 $color-dark-m: #B2B2B2
-$start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%)
+$start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png), radial-gradient(237.5% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%)
+
+//Styles for main-page
 
 .wrapper
   position: relative
@@ -93,7 +101,7 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       color: $color-light-xl
       margin: 0
   &__nav
-    width: 450px
+    width: 443px
 
 .nav-menu
   &__list
@@ -114,7 +122,7 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
       &:hover
         color: $color-light-s
         transition: all 0.3s
-      &:focus //active
+      &:active
         color: $color-light-s
         border-bottom: 3px $color-primary solid
         transition: all 0.2s
@@ -137,11 +145,6 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     width: 460px
     margin-top: 163px
     &_heading
-      font-family: Georgia
-      font-style: 400
-      font-size: 36px
-      line-height: 130%
-      color: $color-light-xl
       margin-bottom: 42px
     &_text
       font-family: Arial
@@ -155,10 +158,17 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     width: 698px
     height: 728px
     right: 0
-    top: 0
+    top: 2px
     &_photo
       width: 698px
       height: 728px
+
+.head_main
+  font-family: Georgia
+  font-style: 800
+  font-size: 44px
+  line-height: 130%
+  color: $color-light-xl
 
 .btn
   display: inline-flex
@@ -529,4 +539,179 @@ $start-screen-gradient-background: radial-gradient(237.5% 111.8% at 0% 0%, rgb(9
     letter-spacing: 0.06em
     color: $color-primary
 
+//Styles for pets-page
+
+.wrapper-pets
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 1812px
+
+.header-our-pets
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 120px
+  background-color: $color-light-xl
+  &__container
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    width: 1200px
+    height: 60px
+  &__content
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 1200px
+    height: 60px
+  &__logo
+    &_title
+      display: block
+      font-family: Georgia
+      font-weight: 400
+      font-size: 32px
+      line-height: 110%
+      letter-spacing: 0.06em
+      color: $color-dark-l
+      margin-top: 0
+      margin-bottom: 10px
+    &_subtitle
+      display: block
+      font-family: Arial
+      font-weight: 400
+      font-size: 13px
+      letter-spacing: 0.1em
+      color: $color-dark-3xl
+      margin: 0
+  &__nav
+    width: 443px
+
+.our-pets__nav_list-item a
+      color: $color-dark-l
+      &:hover
+        color: $color-dark-3xl
+      &:active
+        color: $color-dark-l
+
+.page-pets
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 1280px
+  min-height: 1342px
+  background-color: $color-light-l
+  &__container
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 1200px
+    height: 1162px
+
+.contant-page-pets
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 1162px
+  &__heading
+    width: 400px
+    height: 90px
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
+    &_item
+      margin: 0
+
+.page-pets
+  &__cards-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-content: space-around
+    height: 930px
+    &_card
+      display: flex
+      flex-direction: column
+      align-items: center
+      background: $color-light-s
+      border-radius: 9px
+      width: 270px
+      height: 435px
+      &:hover
+        background: $color-light-xl
+        box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
+        transition: all 0.3s
+
+.pagination
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 340px
+  height: 52px
+  &__btn-container
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 52px
+    height: 52px
+
+
+@mixin btnPagination()
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 2px solid $color-dark-s
+  border-radius: 100px
+  padding: 14px 21px
+  width: 52px
+  height: 52px
+  text-decoration: none
+
+@mixin symbolBtnPagination()
+  font-family: Georgia
+  font-weight: 400
+  font-size: 20px
+  line-height: 115%
+  letter-spacing: 0.06em
+  text-align: center
+  text-decoration: none
+
+.pagination-btn__begining
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-s
+
+.pagination-btn__last
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-s
+
+.pagination-btn__current
+  @include btnPagination()
+  &:hover
+    background: $color-primary
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
+
+.pagination-btn__next
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
+
+.pagination-btn__end
+  @include btnPagination()
+  &_link
+    @include symbolBtnPagination()
+    color: $color-dark-3xl
 

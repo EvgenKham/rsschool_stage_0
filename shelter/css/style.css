@@ -53,14 +53,21 @@ p {
   font-style: italic;
 }
 
-/* line 59, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+@font-face {
+  font-family: "Georgia";
+  src: url("../assets/fonts/georgia/georgia-bold-italic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* line 67, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .wrapper {
   position: relative;
   height: 3800px;
   margin: 0 auto;
 }
 
-/* line 64, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 72, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .header {
   position: absolute;
   width: 1200px;
@@ -72,13 +79,13 @@ p {
   margin-right: auto;
 }
 
-/* line 73, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 81, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .header__container {
   display: flex;
   justify-content: space-between;
 }
 
-/* line 77, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 85, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .header__logo_title {
   display: block;
   font-family: Georgia;
@@ -91,7 +98,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* line 87, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 95, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .header__logo_subtitle {
   display: block;
   font-family: Arial;
@@ -102,12 +109,12 @@ p {
   margin: 0;
 }
 
-/* line 95, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 103, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .header__nav {
-  width: 450px;
+  width: 443px;
 }
 
-/* line 99, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 107, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .nav-menu__list {
   display: flex;
   flex-direction: row;
@@ -115,13 +122,13 @@ p {
   padding: 0;
 }
 
-/* line 104, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 112, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .nav-menu__list-item {
   font-size: 18px;
   list-style: none;
 }
 
-/* line 107, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 115, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .nav-menu__list-item a {
   font-family: Arial;
   font-weight: 400;
@@ -131,58 +138,53 @@ p {
   text-decoration: none;
 }
 
-/* line 114, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 122, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .nav-menu__list-item a:hover {
   color: #fafafa;
   transition: all 0.3s;
 }
 
-/* line 117, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
-.nav-menu__list-item a:focus {
+/* line 125, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.nav-menu__list-item a:active {
   color: #fafafa;
   border-bottom: 3px #f1cdb3 solid;
   transition: all 0.2s;
 }
 
-/* line 122, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 130, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .start-screen {
   display: flex;
   justify-content: center;
   min-width: 1280px;
   min-height: 910px;
-  background: radial-gradient(237.5% 111.8% at 0% 0%, #5b483a 0%, #262425 100%);
+  background: url(../assets/images/noise_transparent@2x.png), radial-gradient(237.5% 111.8% at 0% 0%, #5b483a 0%, #262425 100%);
 }
 
-/* line 128, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 136, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .start-screen__container {
   padding: 180px 40px 0;
 }
 
-/* line 131, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 139, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first {
   position: relative;
   width: 1200px;
   height: 728px;
 }
 
-/* line 135, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 143, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first__description {
   position: absolute;
   width: 460px;
   margin-top: 163px;
 }
 
-/* line 139, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 147, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first__description_heading {
-  font-family: Georgia;
-  font-style: 400;
-  font-size: 36px;
-  line-height: 130%;
-  color: #ffffff;
   margin-bottom: 42px;
 }
 
-/* line 146, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 149, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first__description_text {
   font-family: Arial;
   font-weight: italic;
@@ -192,22 +194,31 @@ p {
   margin-bottom: 42px;
 }
 
-/* line 153, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 156, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first__puppy {
   position: absolute;
   width: 698px;
   height: 728px;
   right: 0;
-  top: 0;
+  top: 2px;
 }
 
-/* line 159, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 162, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-first__puppy_photo {
   width: 698px;
   height: 728px;
 }
 
-/* line 163, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 166, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.head_main {
+  font-family: Georgia;
+  font-style: 800;
+  font-size: 44px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+/* line 173, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -221,7 +232,7 @@ p {
   cursor: pointer;
 }
 
-/* line 174, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 184, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .btn__link {
   font-family: Georgia;
   font-weight: 400;
@@ -233,13 +244,13 @@ p {
   color: #292929;
 }
 
-/* line 183, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 193, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .btn:hover {
   background: #fddcc4;
   transition: all 0.3s;
 }
 
-/* line 187, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 197, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .about {
   display: flex;
   justify-content: center;
@@ -249,14 +260,14 @@ p {
   background: #ffffff;
 }
 
-/* line 194, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 204, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .about__container {
   display: flex;
   align-items: center;
   width: 1200px;
 }
 
-/* line 199, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 209, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-second {
   display: flex;
   width: 100%;
@@ -264,13 +275,13 @@ p {
   align-items: center;
 }
 
-/* line 204, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 214, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-second__picture {
   width: 300px;
   height: 408px;
 }
 
-/* line 207, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 217, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-second__description {
   display: flex;
   flex-direction: column;
@@ -279,7 +290,7 @@ p {
   height: 380px;
 }
 
-/* line 213, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 223, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-second__description_heading {
   font-family: Georgia;
   font-weight: 400;
@@ -289,7 +300,7 @@ p {
   color: #545454;
 }
 
-/* line 220, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 230, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-second__description_text-1 {
   font-family: Arial;
   font-weight: 400;
@@ -298,7 +309,7 @@ p {
   color: #4C4C4C;
 }
 
-/* line 227, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 237, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pets {
   display: flex;
   justify-content: center;
@@ -307,13 +318,13 @@ p {
   background: #f6f6f6;
 }
 
-/* line 233, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 243, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pets__container {
   display: flex;
   justify-content: center;
 }
 
-/* line 237, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 247, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third {
   display: flex;
   flex-direction: column;
@@ -324,7 +335,7 @@ p {
   padding: 80px 40px 100px;
 }
 
-/* line 245, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 255, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__description {
   width: 400px;
   height: 90px;
@@ -337,12 +348,12 @@ p {
   color: #545454;
 }
 
-/* line 255, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 265, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__description_item {
   margin: 0;
 }
 
-/* line 257, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 267, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__content {
   display: flex;
   align-items: center;
@@ -350,14 +361,14 @@ p {
   width: 1200px;
 }
 
-/* line 262, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 272, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__slider {
   display: flex;
   justify-content: space-between;
   width: 990px;
 }
 
-/* line 266, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 276, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__slider_card {
   display: flex;
   flex-direction: column;
@@ -368,24 +379,24 @@ p {
   height: 435px;
 }
 
-/* line 274, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 284, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__slider_card:hover {
   background: #ffffff;
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
   transition: all 0.3s;
 }
 
-/* line 278, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 288, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-third__button_pet {
   width: 260px;
 }
 
-/* line 282, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 292, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pet_image {
   margin-bottom: 30px;
 }
 
-/* line 284, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 294, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pet_name {
   font-family: Georgia;
   font-weight: 400;
@@ -397,7 +408,7 @@ p {
   margin-bottom: 30px;
 }
 
-/* line 293, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 303, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pet_button {
   border: 2px solid;
   color: #f1cdb3;
@@ -406,33 +417,33 @@ p {
   cursor: pointer;
 }
 
-/* line 299, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 309, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .pet_button:hover {
   border: none;
   background: color-primary-light;
 }
 
-/* line 303, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 313, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .arrow-left svg {
   cursor: pointer;
 }
 
-/* line 305, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 315, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .arrow-left svg:hover {
   fill: #fddcc4;
 }
 
-/* line 308, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 318, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .arrow-right svg {
   cursor: pointer;
 }
 
-/* line 310, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 320, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .arrow-right svg:hover {
   fill: #fddcc4;
 }
 
-/* line 313, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 323, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .help {
   display: flex;
   justify-content: center;
@@ -441,13 +452,13 @@ p {
   background: #ffffff;
 }
 
-/* line 319, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 329, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .help__container {
   display: flex;
   justify-content: center;
 }
 
-/* line 323, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 333, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fourth {
   display: flex;
   flex-direction: column;
@@ -458,7 +469,7 @@ p {
   padding: 80px 40px 100px;
 }
 
-/* line 331, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 341, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fourth__description {
   width: 310px;
   height: 90px;
@@ -471,19 +482,19 @@ p {
   color: #545454;
 }
 
-/* line 341, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 351, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fourth__description_item {
   margin: 0;
 }
 
-/* line 343, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 353, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fourth__list-container {
   display: flex;
   width: 1030px;
   height: 290px;
 }
 
-/* line 349, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 359, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list {
   display: flex;
   flex-direction: row;
@@ -494,19 +505,19 @@ p {
   margin: 0;
 }
 
-/* line 357, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 367, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list-item {
   font-size: 18px;
   list-style: none;
 }
 
-/* line 360, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 370, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list-item_name {
   margin: 0;
   text-align: center;
 }
 
-/* line 363, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 373, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list-item_icon {
   display: block;
   margin-left: auto;
@@ -514,17 +525,17 @@ p {
   margin-bottom: 30px;
 }
 
-/* line 368, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 378, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list-item:nth-child(6) {
   margin-left: 84px;
 }
 
-/* line 370, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 380, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .helper__list-item:nth-child(9) {
   margin-right: 84px;
 }
 
-/* line 373, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 383, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .donation {
   display: flex;
   justify-content: center;
@@ -533,7 +544,7 @@ p {
   background: #f6f6f6;
 }
 
-/* line 379, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 389, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .donation__container {
   display: flex;
   justify-content: center;
@@ -541,7 +552,7 @@ p {
   padding-bottom: 100px;
 }
 
-/* line 385, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 395, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fifth {
   display: flex;
   justify-content: space-between;
@@ -550,13 +561,13 @@ p {
   height: 282px;
 }
 
-/* line 391, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 401, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fifth__puppy {
   width: 505px;
   height: 261px;
 }
 
-/* line 394, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 404, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fifth__content {
   display: flex;
   flex-direction: column;
@@ -565,12 +576,12 @@ p {
   height: 282px;
 }
 
-/* line 400, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 410, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fifth__content_heading {
   width: 300px;
 }
 
-/* line 402, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 412, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-fifth__content_info {
   font-family: Arial;
   font-style: italic;
@@ -580,7 +591,7 @@ p {
   color: #B2B2B2;
 }
 
-/* line 411, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 421, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .text_head {
   font-family: Georgia;
   font-weight: 400;
@@ -590,7 +601,7 @@ p {
   color: #545454;
 }
 
-/* line 418, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 428, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .text_subhead {
   font-family: Georgia;
   font-weight: 400;
@@ -600,7 +611,7 @@ p {
   color: #545454;
 }
 
-/* line 426, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 436, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .credit-card {
   display: flex;
   justify-content: center;
@@ -611,7 +622,7 @@ p {
   background: #f1cdb3;
 }
 
-/* line 434, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 444, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .credit-card__content {
   display: flex;
   justify-content: space-between;
@@ -619,7 +630,7 @@ p {
   height: 23px;
 }
 
-/* line 440, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 450, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .credit-card__content_number {
   font-family: Georgia;
   font-weight: 400;
@@ -629,16 +640,16 @@ p {
   color: #545454;
 }
 
-/* line 448, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 458, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .footer {
   display: flex;
   justify-content: center;
   min-width: 1280px;
   min-height: 350px;
-  background: radial-gradient(237.5% 111.8% at 0% 0%, #5b483a 0%, #262425 100%);
+  background: url(../assets/images/noise_transparent@2x.png), radial-gradient(237.5% 111.8% at 0% 0%, #5b483a 0%, #262425 100%);
 }
 
-/* line 454, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 464, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .footer__container {
   display: flex;
   justify-content: center;
@@ -646,14 +657,14 @@ p {
   width: 1200px;
 }
 
-/* line 460, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 470, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-footer {
   display: flex;
   justify-content: space-between;
   width: 1200px;
 }
 
-/* line 464, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 474, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-footer__contacts {
   display: flex;
   flex-direction: column;
@@ -663,7 +674,7 @@ p {
   margin-top: 16px;
 }
 
-/* line 471, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 481, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-footer__location {
   display: flex;
   flex-direction: column;
@@ -673,13 +684,13 @@ p {
   height: 234px;
 }
 
-/* line 478, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 488, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .content-footer__image {
   width: 300px;
   height: 310px;
 }
 
-/* line 482, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 492, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .footer-heading_text {
   font-family: Georgia;
   font-weight: 400;
@@ -689,17 +700,17 @@ p {
   color: #ffffff;
 }
 
-/* line 490, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 500, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .email__content {
   display: flex;
 }
 
-/* line 492, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 502, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .email__content_icon {
   margin-right: 20px;
 }
 
-/* line 494, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 504, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .email__content_text {
   display: flex;
   align-items: center;
@@ -711,17 +722,17 @@ p {
   color: #f1cdb3;
 }
 
-/* line 504, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 514, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .tel__content {
   display: flex;
 }
 
-/* line 506, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 516, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .tel__content_icon {
   margin-right: 20px;
 }
 
-/* line 508, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 518, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .tel__content_text {
   display: flex;
   align-items: center;
@@ -733,17 +744,17 @@ p {
   color: #f1cdb3;
 }
 
-/* line 518, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 528, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .place__content {
   display: flex;
 }
 
-/* line 520, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 530, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .place__content_icon {
   margin-right: 20px;
 }
 
-/* line 522, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+/* line 532, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
 .place__content_text {
   display: flex;
   align-items: center;
@@ -753,6 +764,308 @@ p {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #f1cdb3;
+}
+
+/* line 544, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.wrapper-pets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 1812px;
+}
+
+/* line 550, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1280px;
+  min-height: 120px;
+  background-color: #ffffff;
+}
+
+/* line 557, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 1200px;
+  height: 60px;
+}
+
+/* line 563, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  height: 60px;
+}
+
+/* line 570, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets__logo_title {
+  display: block;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* line 580, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets__logo_subtitle {
+  display: block;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #292929;
+  margin: 0;
+}
+
+/* line 588, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.header-our-pets__nav {
+  width: 443px;
+}
+
+/* line 591, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.our-pets__nav_list-item a {
+  color: #545454;
+}
+
+/* line 593, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.our-pets__nav_list-item a:hover {
+  color: #292929;
+}
+
+/* line 595, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.our-pets__nav_list-item a:active {
+  color: #545454;
+}
+
+/* line 598, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.page-pets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1280px;
+  min-height: 1342px;
+  background-color: #f6f6f6;
+}
+
+/* line 605, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.page-pets__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1200px;
+  height: 1162px;
+}
+
+/* line 612, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.contant-page-pets {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  height: 1162px;
+}
+
+/* line 619, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.contant-page-pets__heading {
+  width: 400px;
+  height: 90px;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #545454;
+}
+
+/* line 629, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.contant-page-pets__heading_item {
+  margin: 0;
+}
+
+/* line 633, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.page-pets__cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+  height: 930px;
+}
+
+/* line 639, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.page-pets__cards-container_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fafafa;
+  border-radius: 9px;
+  width: 270px;
+  height: 435px;
+}
+
+/* line 647, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.page-pets__cards-container_card:hover {
+  background: #ffffff;
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+  transition: all 0.3s;
+}
+
+/* line 652, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 340px;
+  height: 52px;
+}
+
+/* line 658, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination__btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+}
+
+/* line 686, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__begining {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cdcdcd;
+  border-radius: 100px;
+  padding: 14px 21px;
+  width: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+/* line 688, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__begining_link {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  color: #cdcdcd;
+}
+
+/* line 692, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cdcdcd;
+  border-radius: 100px;
+  padding: 14px 21px;
+  width: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+/* line 694, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__last_link {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  color: #cdcdcd;
+}
+
+/* line 698, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cdcdcd;
+  border-radius: 100px;
+  padding: 14px 21px;
+  width: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+/* line 700, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__current:hover {
+  background: #f1cdb3;
+}
+
+/* line 702, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__current_link {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  color: #292929;
+}
+
+/* line 706, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cdcdcd;
+  border-radius: 100px;
+  padding: 14px 21px;
+  width: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+/* line 708, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__next_link {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  color: #292929;
+}
+
+/* line 712, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cdcdcd;
+  border-radius: 100px;
+  padding: 14px 21px;
+  width: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+/* line 714, ../../../Projects_JS_Learning/The rolling scopes/stage_0/shelter/evgenkham-JSFEPRESCHOOL2024Q2/shelter/sass/style.sass */
+.pagination-btn__end_link {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  color: #292929;
 }
 
 /*# sourceMappingURL=style.css.map */
