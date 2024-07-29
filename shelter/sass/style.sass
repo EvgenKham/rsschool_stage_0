@@ -1,10 +1,13 @@
+html
+  scroll-behavior: smooth
+
+
 body
   margin: 0
   padding: 0
   box-sizing: border-box
   font-family: "Georgia"
   font-weight: regular
-  scroll-behavior: smooth
 
 
 h1,h2, h3,h4,h5,h6
@@ -82,6 +85,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     display: flex
     justify-content: space-between
   &__logo
+    text-decoration: none
     &_title
       display: block
       font-family: Georgia
@@ -309,6 +313,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     &:hover
       border: none
       background: color-primary-light
+  &:hover
 
 .arrow-left svg
     cursor: pointer
@@ -567,6 +572,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     width: 1200px
     height: 60px
   &__logo
+    text-decoration: none
     &_title
       display: block
       font-family: Georgia

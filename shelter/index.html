@@ -14,10 +14,10 @@
       <!--Header с навигационным меню, который размещается поверх главной секции-->
       <header class="header">
         <div class="header__container">
-          <div class="header__logo">
-            <h2 class="header__logo_title">Cozy House</h2>
+          <a href="#" class="header__logo">
+            <h1 class="header__logo_title">Cozy House</h1>
             <h2 class="header__logo_subtitle">Shelter for pets in Boston</h2>
-          </div>
+          </a>
           <nav class="header__nav nav-menu">
             <ul class="nav-menu__list">
               <li class="nav-menu__list-item">
@@ -44,7 +44,7 @@
             <div class="content-first">
               <div class="content-first__description">
                 <div class="content-first__description_heading head">
-                  <h1 class="head_main">Not only people need a house</h1>
+                  <h2 class="head_main">Not only people need a house</h2>
                 </div>
                 <div class="content-first__description_text">
                   <p>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="content-first__description_button">
                   <button class="btn">
-                    <a href="#" class="btn__link">Make a friend</a>
+                    <a href="#main-pets" class="btn__link">Make a friend</a>
                   </button>
                 </div>
               </div>
@@ -107,7 +107,7 @@
         </section>
 
         <!--Секция с выбором питомца в виде слайдера-->
-        <section class="pets">
+        <section id="main-pets" class="pets">
           <div class="pets__container">
             <div class="content-third">
 
@@ -157,7 +157,7 @@
               </div>
               <div class="content-third__button">
                 <button class="content-third__button_pet btn">
-                  <a href="#" class="btn__link">Get to know the rest</a>
+                  <a href="pets.html" class="btn__link">Get to know the rest</a>
                 </button>
               </div>
             </div>
@@ -165,7 +165,7 @@
         </section>
 
         <!--Секция разновидностей помощи приюту-->
-        <section class="help">
+        <section id="help" class="help">
           <div class="help__container">
             <div class="content-fourth">
               <div class="content-fourth__description">
@@ -252,10 +252,10 @@
       </main>
 
       <!--Footer с дополнительной информацией-->
-      <footer class="footer">
+      <footer id="contacts" class="footer">
         <div class="footer__container">
           <div class="content-footer">
-            <div class="content-footer__contacts">
+            <div  class="content-footer__contacts">
               <div class="content-footer__contacts_title footer-heading">
                 <h3 class="footer-heading_text">For questions and suggestions</h3>
               </div>
