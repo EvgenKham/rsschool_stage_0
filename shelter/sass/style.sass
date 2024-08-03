@@ -69,7 +69,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 .wrapper
   position: relative
-  height: 3800px
+  height: 100%
   margin: 0 auto
 
 .header
@@ -113,26 +113,26 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     display: flex
     flex-direction: row
     justify-content: space-between
+    width: 443px
     padding: 0
+    padding-bottom: 4px
   &__list-item
     font-size: 18px
     list-style: none
-    &:nth-child(1)
-        border-bottom: 3px $color-primary solid
-        cursor: default
-    a
-      font-family: Arial
-      font-weight: 400
-      font-size: 15px
-      line-height: 160%
-      color: $color-dark-s
-      text-decoration: none
-      &:hover
-        color: $color-light-s
-        transition: all 0.3s
-      &:active
-        color: $color-light-s
-
+  &__item
+    font-family: Arial
+    font-weight: 400
+    font-size: 15px
+    line-height: 160%
+    color: $color-dark-s
+    text-decoration: none
+    &:hover
+      color: $color-light-s
+      transition: all 0.3s
+  &__active
+    padding-bottom: 4px
+    border-bottom: 3px $color-primary solid
+    color: $color-light-s
 
 .start-screen
   display: flex
@@ -167,6 +167,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       line-height: 160%
       color: $color-dark-s
       margin-bottom: 42px
+    &_button
   &__puppy
     position: absolute
     width: 698px
@@ -186,20 +187,18 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   background: $color-primary
   border-radius: 100px
   border: none
-  padding: 15px 45px
   cursor: pointer
-  &__link
-    font-family: Georgia
-    font-weight: 400
-    font-size: 17px
-    white-space: nowrap
-    line-height: 130%
-    letter-spacing: 0.06em
-    text-decoration: none
-    color: $color-dark-3xl
+  font-family: Georgia
+  font-weight: 400
+  font-size: 17px
+  white-space: nowrap
+  line-height: 130%
+  letter-spacing: 0.06em
+  text-decoration: none
+  color: $color-dark-3xl
   &:hover
     background: $color-primary-light
-    transition: all 0.3s
+    transition: all 0.5s
 
 .about
   display: flex
@@ -280,6 +279,9 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     justify-content: space-between
     width: 1200px
     &_button
+      display: flex
+      justify-content: center
+      align-items: center
       width: 52px
       height: 52px
   &__slider
@@ -297,9 +299,13 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       &:hover
         background: $color-light-xl
         box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
-        transition: all 0.3s
-  &__button_pet
-    width: 260px
+        transition: all 0.5s
+        .pet__button-container_item
+          border: $color-light-xl
+          background: $color-primary-light
+          transition: all 0.5s
+  &__button-container_item
+      width: 260px
 
 .pet
   &_image
@@ -313,27 +319,48 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     color: $color-dark-l
     margin: 0
     margin-bottom: 31px
-  &_button
-    width: 187px
-    border: 2px solid
-    color: $color-primary
-    background: $color-light-xl
-    margin-bottom: 30px
-    cursor: pointer
-    &:hover
-      border: none
-      background: color-primary-light
-  &:hover
+  &__button-container
+    &_item
+      box-sizing: border-box
+      width: 187px
+      border: 2px solid $color-primary
+      background: $color-light-xl
+      margin-bottom: 30px
 
-.arrow-left svg
+.arrow
+  &__left
+    box-sizing: border-box
+    background-color: transparent
     cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 52px
+    height: 52px
+    border: 2px solid $color-primary
+    border-radius: 100px
+    transition: all 0.3s
     &:hover
-      fill: $color-primary-light
-
-.arrow-right svg
+      border: 2px solid $color-primary-light
+      background: $color-primary-light
+  &__right
+    box-sizing: border-box
+    background-color: transparent
     cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 52px
+    height: 52px
+    border: 2px solid $color-primary
+    border-radius: 100px
+    transition: all 0.5s
+    border: 2px solid $color-primary
+    border-radius: 100px
+    transition: all 0.3s
     &:hover
-      fill: $color-primary-light
+      border: 2px solid $color-primary-light
+      background: $color-primary-light
 
 .help
   display: flex
@@ -405,24 +432,24 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: center
   min-width: 1280px
-  min-height: 461px
+  min-height: 463px
   background: $color-light-l
   &__container
     display: flex
     justify-content: center
     align-items: center
     width: 1200px
-    padding-bottom: 20px
+    padding-bottom: 18px
 
 .content-fifth
   display: flex
   justify-content: space-between
   align-items: center
-  width: 915px
+  width: 914px
   height: 282px
   &__puppy
     width: 505px
-    height: 260px
+    height: 261px
   &__content
     display: flex
     flex-direction: column
@@ -463,6 +490,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   width: 349px
   height: 43px
   background: $color-primary
+  text-decoration: none
+  &:hover
+    background: $color-primary-light
+    transition: all 0.5s
   &__content
     display: flex
     justify-content: space-between
@@ -481,7 +512,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: center
   min-width: 1280px
-  min-height: 352px
+  min-height: 350px
   background: $start-screen-gradient-background
   &__container
     display: flex
@@ -522,6 +553,8 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 .email__content
   display: flex
+  text-decoration: none
+  transition: all 0.3s
   &_icon
     margin-right: 20px
   &_text
@@ -533,9 +566,13 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     line-height: 115%
     letter-spacing: 0.06em
     color: $color-primary
+  &:hover
+    color: $color-primary-light
 
 .tel__content
   display: flex
+  text-decoration: none
+  transition: all 0.3s
   &_icon
     margin-right: 20px
   &_text
@@ -547,9 +584,13 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     line-height: 115%
     letter-spacing: 0.06em
     color: $color-primary
+  &:hover
+    color: $color-primary-light
 
 .place__content
   display: flex
+  text-decoration: none
+  transition: all 0.3s
   &_icon
     padding-top: 5px
     margin-right: 20px
@@ -562,6 +603,8 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     line-height: 115%
     letter-spacing: 0.06em
     color: $color-primary
+  &:hover
+    color: $color-primary-light
 
 //Styles for pets-page
 
@@ -610,15 +653,25 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       letter-spacing: 0.1em
       color: $color-dark-3xl
       margin: 0
+      margin-left: 4px
   &__nav
+    display: flex
+    justify-content: center
+    align-items: center
     width: 443px
+    height: 27px
 
-.our-pets__nav_list-item a
-      color: $color-dark-l
-      &:hover
-        color: $color-dark-3xl
-      &:active
-        color: $color-dark-l
+.our-pets-nav
+  &__list-item
+  &__item
+    color: $color-dark-l
+    &:hover
+      color: $color-dark-3xl
+      transition: all 0.3s
+  &__active
+    padding-bottom: 4px
+    border-bottom: 3px $color-primary solid
+    color: $color-dark-3xl
 
 .page-pets
   display: flex
@@ -629,32 +682,11 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   background-color: $color-light-l
   &__container
     display: flex
-    flex-direction: column
-    justify-content: space-between
+    justify-content: center
+    align-items: center
     width: 1200px
     height: 1162px
-
-.contant-page-pets
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  align-items: center
-  width: 1200px
-  height: 1162px
-  &__heading
-    width: 400px
-    height: 90px
-    font-family: Georgia
-    font-weight: 400
-    font-size: 35px
-    line-height: 130%
-    letter-spacing: 0.06em
-    text-align: center
-    color: $color-dark-l
-    &_item
-      margin: 0
-
-.page-pets
+    padding-bottom: 20px
   &__cards-container
     display: flex
     flex-wrap: wrap
@@ -672,32 +704,50 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       &:hover
         background: $color-light-xl
         box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04)
-        transition: all 0.3s
-
-.pagination
-  display: flex
-  justify-content: space-between
-  align-items: center
-  width: 340px
-  height: 52px
-  &__btn-container
+        transition: all 0.5s
+        .pet__button-container_item
+          border: $color-light-xl
+          background: $color-primary-light
+          transition: all 0.5s
+  &__button-container_item
+      width: 260px
+  &__container-nav
     display: flex
-    justify-content: center
+    justify-content: space-between
     align-items: center
-    width: 52px
+    width: 340px
     height: 52px
 
+.contant-page-pets
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  width: 1200px
+  height: 1162px
+  &__heading
+    width: 400px
+    height: 90px
+  &__text
+    font-family: Georgia
+    font-weight: 400
+    font-size: 35px
+    line-height: 130%
+    letter-spacing: 0.06em
+    text-align: center
+    color: $color-dark-l
 
 @mixin btnPagination()
   display: flex
   justify-content: center
   align-items: center
-  border: 2px solid $color-dark-s
-  border-radius: 100px
-  padding: 14px 21px
   width: 52px
   height: 52px
-  text-decoration: none
+  border: 2px solid $color-dark-s
+  border-radius: 100px
+  background-color: transparent
+  cursor: pointer
+  transition: all 0.3s
 
 @mixin symbolBtnPagination()
   font-family: Georgia
@@ -706,37 +756,27 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   line-height: 115%
   letter-spacing: 0.06em
   text-align: center
-  text-decoration: none
 
-.pagination-btn__begining
-  @include btnPagination()
-  &_link
+.pagination
+  &__disable
+    @include btnPagination()
     @include symbolBtnPagination()
+    border: 2px solid $color-dark-s
+    cursor: not-allowed
     color: $color-dark-s
-
-.pagination-btn__last
-  @include btnPagination()
-  &_link
+  &__current-page
+    @include btnPagination()
     @include symbolBtnPagination()
-    color: $color-dark-s
-
-.pagination-btn__current
-  @include btnPagination()
-  &:hover
-    background: $color-primary
-  &_link
-    @include symbolBtnPagination()
+    border: 2px solid $color-primary-light
+    background: $color-primary-light
+    cursor: default
     color: $color-dark-3xl
-
-.pagination-btn__next
-  @include btnPagination()
-  &_link
+  &__able
+    @include btnPagination()
     @include symbolBtnPagination()
+    border: 2px solid $color-primary
+    cursor: pointer
     color: $color-dark-3xl
-
-.pagination-btn__end
-  @include btnPagination()
-  &_link
-    @include symbolBtnPagination()
-    color: $color-dark-3xl
-
+    &:hover
+      border: 2px solid $color-primary-light
+      background: $color-primary-light
