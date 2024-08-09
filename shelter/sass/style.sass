@@ -162,7 +162,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     height: 322px
     &_title
       width: 310px
-      // margin-bottom: 42px
       font-family: Georgia
       font-weight: 400
       font-size: 44px
@@ -214,13 +213,14 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: center
   align-items: center
-  min-width: 1280px
+  // min-width: 1280px
   min-height: 588px
   background: $color-light-xl
   &__container
     display: flex
     align-items: center
-    width: 1200px
+    width: 94%
+    max-width: 1200px
     padding-bottom: 20px
 
 .content-second
@@ -235,10 +235,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     display: flex
     flex-direction: column
     justify-content: space-between
-    width: 430px
+    width: 100%
+    max-width: 430px
     height: 380px
     &_title
-      width: 370px
+      width: 100%
+      max-width: 370px
     &_text
       font-family: Georgia
       font-weight: 400
@@ -256,21 +258,25 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .pets
   display: flex
   justify-content: center
-  min-width: 1280px
-  min-height: 877px
+  // min-width: 1280px
+  // min-height: 877px
   background: $color-light-l
   &__container
-    display: flex
-    justify-content: center
+    align-items: center
+    width: 94%
+    max-width: 1200px
+    margin: 0 auto
+    padding-bottom: 20px
 
 .content-third
   display: flex
   flex-direction: column
   justify-content: space-between
   align-items: center
-  width: 1200px
+  // width: 94%
+  // max-width: 1200px
   height: 697px
-  padding: 80px 40px 100px
+  padding: 80px 0px 100px
   &__description
     width: 400px
     height: 90px
@@ -287,17 +293,23 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     display: flex
     align-items: center
     justify-content: space-between
-    width: 1200px
+    width: 100%
+    max-width: 1200px
     &_button
       display: flex
       justify-content: center
       align-items: center
       width: 52px
       height: 52px
+  &__wrapper
+    width: 100%
+    max-width: 990px
+    overflow: hidden
   &__slider
     display: flex
     justify-content: space-between
-    width: 990px
+    // position: relative
+    // left: 0%
     &_card
       display: flex
       flex-direction: column
@@ -800,6 +812,20 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   .content-first
     justify-content: center
 
+  .content-third
+    &__wrapper
+      margin: 0 12px
+
+@media (max-width: 1020px)
+  .content-third
+    &__slider
+      width: 100%
+      max-width: 800px
+      height: 435px
+      justify-content: space-evenly
+      flex-wrap: wrap
+      overflow: hidden
+
 @media (max-width: 900px)
   .content-first
     flex-direction: column
@@ -813,8 +839,32 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       align-self: flex-end
       width: 80.3%
 
-@media (max-width: 767px)
+  .content-second
+    flex-direction: column
+    &__picture
+      order: 1
+      margin: 0 auto
+      margin-top: 80px
+
+  .about
+    min-height: 1048px
+
+@media (max-width: 768px)
   .container
     max-width: 708px
     &__info
       padding: 0
+
+  .about__container
+    max-width: 708px
+
+  .pets__container
+    max-width: 708px
+
+  .content-third
+    &__slider
+      width: 580px
+      height: 435px
+      flex-wrap: wrap
+      overflow: hidden
+
