@@ -213,7 +213,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: center
   align-items: center
-  // min-width: 1280px
   min-height: 588px
   background: $color-light-xl
   &__container
@@ -229,6 +228,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   justify-content: center
   align-items: center
   &__picture
+    display: flex
     width: 420px
     height: 408px
   &__description
@@ -258,23 +258,19 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .pets
   display: flex
   justify-content: center
-  // min-width: 1280px
-  // min-height: 877px
   background: $color-light-l
   &__container
     align-items: center
     width: 94%
     max-width: 1200px
     margin: 0 auto
-    padding-bottom: 20px
+    // padding-bottom: 20px
 
 .content-third
   display: flex
   flex-direction: column
   justify-content: space-between
   align-items: center
-  // width: 94%
-  // max-width: 1200px
   height: 697px
   padding: 80px 0px 100px
   &__description
@@ -308,8 +304,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   &__slider
     display: flex
     justify-content: space-between
-    // position: relative
-    // left: 0%
     &_card
       display: flex
       flex-direction: column
@@ -386,26 +380,25 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 .help
   display: flex
-  justify-content: center
-  min-width: 1280px
-  min-height: 610px
   background: $color-light-xl
   &__container
     display: flex
+    justify-content: center
     align-items: center
-    width: 1200px
-    padding-bottom: 20px
+    width: 94%
+    max-width: 1200px
+    margin: 0 auto
 
 .content-fourth
   display: flex
   flex-direction: column
   justify-content: space-between
   align-items: center
-  width: 1200px
-  height: 431px
+  padding: 80px 0 100px
   &__description
     width: 310px
     height: 90px
+    margin-bottom: 60px
     &_text
       font-family: Georgia
       font-weight: 400
@@ -417,8 +410,8 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       margin: 0
   &__list-container
     display: flex
-    width: 1026px
-    height: 281px
+    width: 100%
+    max-width: 1026px
 
 .helper
   &__list
@@ -426,8 +419,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     justify-content: center
     flex-wrap: wrap
     gap: 55px 119px
+    // width: 100%
+    // max-width: 1026px
     padding: 0
-    margin: 0
+    margin: 0 auto
   &__list-item
     font-size: 18px
     list-style: none
@@ -453,22 +448,24 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .donation
   display: flex
   justify-content: center
-  min-width: 1280px
+  // min-width: 1280px
   min-height: 463px
   background: $color-light-l
   &__container
     display: flex
     justify-content: center
     align-items: center
-    width: 1200px
-    padding-bottom: 18px
+    width: 94%
+    max-width: 1200px
+    padding: 80px 0 100px
 
 .content-fifth
   display: flex
   justify-content: space-between
   align-items: center
-  width: 914px
-  height: 282px
+  width: 100%
+  max-width: 914px
+  // height: 282px
   &__puppy
     width: 505px
     height: 261px
@@ -533,34 +530,39 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .footer
   display: flex
   justify-content: center
-  min-width: 1280px
-  min-height: 350px
+  // min-width: 1280px
+  // min-height: 350px
   background: $start-screen-gradient-background
   &__container
     display: flex
     justify-content: center
-    align-items: flex-end
-    width: 1200px
+    // align-items: flex-end
+    width: 94%
+    max-width: 1200px
+    margin: 0 auto
 
 .content-footer
   display: flex
   justify-content: space-between
-  width: 1200px
-  height: 310px
+  flex-wrap: wrap
+  padding: 15px 34px 0
+  width: 100%
+  max-width: 1200px
+  // height: 310px
   &__contacts
     display: flex
     flex-direction: column
     justify-content: space-between
     width: 279px
-    height: 237px
-    margin-top: 17px
+    height: 236px
+    margin-top: 16px
   &__location
     display: flex
     flex-direction: column
     justify-content: space-between
-    margin-top: 17px
+    margin-top: 16px
     width: 302px
-    height: 237px
+    height: 236px
   &__image
     width: 300px
     height: 310px
@@ -805,10 +807,22 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 
 @media (max-width: 1279px)
+
   .header
     width: 92%
 
+  .helper
+    &__list
+      gap: 55px 60px
+    &__list-item
+      width: 170px
+      &:nth-child(6)
+        margin: 0
+      &:nth-child(9)
+        margin: 0
+
 @media (max-width: 1218px)
+
   .content-first
     justify-content: center
 
@@ -817,16 +831,24 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       margin: 0 12px
 
 @media (max-width: 1020px)
+
   .content-third
     &__slider
       width: 100%
       max-width: 800px
       height: 435px
-      justify-content: space-evenly
+      justify-content: space-between
       flex-wrap: wrap
       overflow: hidden
 
+  .content-footer
+    justify-content: space-between
+    &__image
+      margin: 0 auto
+      margin-top: 62px
+
 @media (max-width: 900px)
+
   .content-first
     flex-direction: column
     padding-top: 150px
@@ -835,7 +857,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       &_button
         margin: 0 auto
     &__puppy
-      margin-top: 100px
+      margin-top: 22px
       align-self: flex-end
       width: 80.3%
 
@@ -843,13 +865,22 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     flex-direction: column
     &__picture
       order: 1
-      margin: 0 auto
+      // margin: 0 auto
+      justify-content: center
       margin-top: 80px
 
   .about
     min-height: 1048px
 
+  .content-fifth
+    flex-direction: column
+    &__puppy
+      order: 1
+      margin: 0 auto
+      margin-top: 60px
+
 @media (max-width: 768px)
+
   .container
     max-width: 708px
     &__info
@@ -861,10 +892,60 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   .pets__container
     max-width: 708px
 
-  .content-third
-    &__slider
-      width: 580px
-      height: 435px
-      flex-wrap: wrap
-      overflow: hidden
+  .content-third__slider
+    width: 580px
+    height: 435px
+    flex-wrap: wrap
+    overflow: hidden
 
+  .helper__list
+    gap: 55px 60px
+
+  .help__container
+    max-width: 708px
+
+  .donation__container
+    max-width: 708px
+
+  .footer__container
+    max-width: 708px
+
+@media (max-width: 767px)
+
+  .header__nav
+    display: none
+
+  .burger
+    width: 30px
+    position: fixed
+    top: 20px
+    right: 30px
+    height: 14px
+    z-index: 12
+    opacity: 1
+    cursor: pointer
+    span
+      display: block
+      height: 2px
+      width: 100%
+      background: $color-primary
+      margin-bottom: 10px
+      transition: 0.3s all
+      &:last-child
+        margin-bottom: 0px
+
+.burger_active
+  z-index: 11
+  span
+    margin-bottom: -2px
+    &:nth-child(1)
+      transform: translateY(3px) rotate(-45deg)
+    &:nth-child(2)
+      display: none
+    &:nth-child(3)
+      transform: translateY(3px) rotate(45deg)
+
+@media (max-width: 320px)
+
+  .header
+    width: 88%
