@@ -13,47 +13,46 @@
 
       <!--Header с навигационным меню, который размещается поверх главной секции-->
       <header class="header">
-        <div class="header__container">
-          <a href="#" class="header__logo">
-            <h1 class="header__logo_title">Cozy House</h1>
-            <h3 class="header__logo_subtitle">Shelter for pets in Boston</h3>
-          </a>
-          <nav class="header__nav nav-menu">
-            <ul class="nav-menu__list">
-              <li class="nav-menu__list-item">
-                <a href="#" class="nav-menu__item nav-menu__active">About the shelter</a>
-              </li>
-              <li class="nav-menu__list-item">
-                <a href="pets.html" class="nav-menu__item">Our pets</a>
-              </li>
-              <li class="nav-menu__list-item">
-                <a href="#help" class="nav-menu__item">Help the shelter</a>
-              </li>
-              <li class="nav-menu__list-item">
-                <a href="#contacts" class="nav-menu__item">Contacts</a>
-              </li>
-            </ul>
-          </nav>
+        <a href="#" class="header__logo">
+          <h1 class="header__logo_title">Cozy House</h1>
+          <h3 class="header__logo_subtitle">Shelter for pets in Boston</h3>
+        </a>
+        <nav class="header__nav nav-menu">
+          <ul class="nav-menu__list">
+            <li class="nav-menu__list-item">
+              <a href="#" class="nav-menu__item nav-menu__active">About the shelter</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="pets.html" class="nav-menu__item">Our pets</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="#help" class="nav-menu__item">Help the shelter</a>
+            </li>
+            <li class="nav-menu__list-item">
+              <a href="#contacts" class="nav-menu__item">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </header>
 
       <main>
         <!--Первая серкция с картинкой и описанием-->
         <section class="start-screen">
-          <div class="start-screen__container">
+          <div class="start-screen__container container">
             <div class="content-first">
-              <div class="content-first__description">
-                <div class="content-first__description_title">
-                  <h2 class="content-first__description_text">Not only people need a house</h2>
-                </div>
-                <div class="content-first__description_subtitle">
-                  <p>
+              <div class="content-first__info">
+                <h2 class="content-first__info_title">Not only people need a house</h2>
+                <p class="content-first__info_subtitle">
                     We offer to give a chance to a little and nice puppy with an
                     extremely wide and open heart. He or she will love you more
                     than anybody else in the world, you will see!
-                  </p>
-                </div>
-                <div class="content-first__description_button">
+                </p>
+                <div class="content-first__info_button">
                   <a href="#main-pets" class="btn">Make a friend</a>
                 </div>
               </div>
@@ -74,7 +73,7 @@
           <div class="about__container">
             <div class="content-second">
               <div class="content-second__picture">
-                <img src="assets/images/about-pets.png" alt="cat and dog">
+                <img class="about__image" src="assets/images/about-pets.png" alt="cat and dog">
               </div>
               <div class="content-second__description">
                 <div class="content-second__description_title">
@@ -123,26 +122,28 @@
                   </div>
                 </div>
                 <!--Слайдер с карточками животных-->
-                <div class="content-third__slider">
-                  <div class="content-third__slider_card pet">
-                    <img class="pet_image" src="assets/images/pets-katrine.png" alt="cat-katrine-picture">
-                    <p class="pet_name">Katrine</p>
-                    <div class="pet__button-container">
-                      <a href="#" class="pet__button-container_item btn">Learn more</a>
+                <div class="content-third__wrapper">
+                  <div class="content-third__slider">
+                    <div class="content-third__slider_card pet">
+                      <img class="pet_image" src="assets/images/pets-katrine.png" alt="cat-katrine-picture">
+                      <p class="pet_name">Katrine</p>
+                      <div class="pet__button-container">
+                        <a href="#" class="pet__button-container_item btn">Learn more</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="content-third__slider_card pet">
-                    <img class="pet_image" src="assets/images/pets-jennifer.png" alt="dog-jennifer-picture">
-                    <p class="pet_name">Jennifer</p>
-                    <div class="pet__button-container">
-                      <a href="#" class="pet__button-container_item btn">Learn more</a>
+                    <div class="content-third__slider_card pet">
+                      <img class="pet_image" src="assets/images/pets-jennifer.png" alt="dog-jennifer-picture">
+                      <p class="pet_name">Jennifer</p>
+                      <div class="pet__button-container">
+                        <a href="#" class="pet__button-container_item btn">Learn more</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="content-third__slider_card pet">
-                    <img class="pet_image" src="assets/images/pets-woody.png" alt="dog-woody-picture">
-                    <p class="pet_name">Woody</p>
-                    <div class="pet__button-container">
-                      <a href="#" class="pet__button-container_item btn">Learn more</a>
+                    <div class="content-third__slider_card pet">
+                      <img class="pet_image" src="assets/images/pets-woody.png" alt="dog-woody-picture">
+                      <p class="pet_name">Woody</p>
+                      <div class="pet__button-container">
+                        <a href="#" class="pet__button-container_item btn">Learn more</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -219,7 +220,7 @@
            <div class="donation__container">
             <div class="content-fifth">
               <div class="content-fifth__puppy">
-                <img src="assets/images/donation-dog.png" alt="puppy with pity eyes">
+                <img class="donation__image" src="assets/images/donation-dog.png" alt="puppy with pity eyes">
               </div>
               <div class="content-fifth__content">
                 <div class="content-fifth__content_heading text">
@@ -318,7 +319,7 @@
               </div>
             </div>
             <div class="content-footer__image">
-              <img src="assets/images/footer-puppy.png" alt="puppy licks the screen">
+              <img class="footer__image" src="assets/images/footer-puppy.png" alt="puppy licks the screen">
             </div>
           </div>
         </div>
