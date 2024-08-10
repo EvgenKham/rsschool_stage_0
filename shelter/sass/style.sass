@@ -640,56 +640,16 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   flex-direction: column
   justify-content: center
-  height: 1812px
+  // height: 1812px
 
-.header-our-pets
-  display: flex
-  justify-content: center
-  align-items: center
-  min-width: 1280px
-  min-height: 120px
-  background-color: $color-light-xl
-  &__container
-    display: flex
-    justify-content: center
-    align-items: flex-end
-    width: 1200px
-    height: 60px
-  &__content
-    display: flex
-    justify-content: space-between
-    align-items: center
-    width: 1200px
-    height: 60px
+.pets
   &__logo
-    text-decoration: none
     &_title
-      display: block
-      font-family: Georgia
-      font-weight: 400
-      font-size: 32px
-      line-height: 110%
-      letter-spacing: 0.06em
       color: $color-dark-l
-      margin-top: 0
-      margin-bottom: 10px
     &_subtitle
-      display: block
-      font-family: Arial
-      font-weight: 400
-      font-size: 13px
-      letter-spacing: 0.1em
       color: $color-dark-3xl
-      margin: 0
-      margin-left: 4px
-  &__nav
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 443px
-    height: 27px
 
-.our-pets-nav
+.pets-nav
   &__list-item
   &__item
     color: $color-dark-l
@@ -701,26 +661,32 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     border-bottom: 3px $color-primary solid
     color: $color-dark-3xl
 
+.burger-pets
+
 .page-pets
   display: flex
   justify-content: center
   align-items: center
-  min-width: 1280px
-  min-height: 1342px
+  // min-width: 1280px
+  // min-height: 1342px
   background-color: $color-light-l
+  margin-top: 120px
   &__container
     display: flex
     justify-content: center
     align-items: center
-    width: 1200px
-    height: 1162px
-    padding-bottom: 20px
+    width: 94%
+    max-width: 1200px
+    // margin: 0 auto
+    // height: 1162px
+    padding-bottom: 80px 0 100px
   &__cards-container
     display: flex
     flex-wrap: wrap
     justify-content: space-between
     align-content: space-around
     height: 930px
+    overflow: hidden
     &_card
       display: flex
       flex-direction: column
@@ -752,10 +718,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   justify-content: space-between
   align-items: center
   width: 1200px
-  height: 1162px
+  margin-top: 80px
+  margin-bottom: 76px
+  // height: 1162px
   &__heading
-    width: 400px
-    height: 90px
+    max-width: 400px
+    max-height: 90px
   &__text
     font-family: Georgia
     font-weight: 400
@@ -825,6 +793,15 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       &:nth-child(9)
         margin: 0
 
+  .page-pets__cards-container
+    width: 100%
+    max-width: 1200px
+    overflow: hidden
+    row-gap: 30px
+    // height: 1365
+    margin-top: 30px
+    margin-bottom: 40px
+
 @media (max-width: 1218px)
 
   .content-first
@@ -889,9 +866,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       margin: 0 auto
       margin-top: 60px
 
+  .page-pets__cards-container
+    width: 100%
+    max-width: 580px
+    height: 1365px
+
 @media (max-width: 768px)
-
-
 
   .container
     max-width: 708px
@@ -920,6 +900,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   .footer__container
     max-width: 708px
 
+  .page-pets__container
+    max-width: 708px
+    padding-bottom: 0
+
 @media (max-width: 767px)
 
   .header__nav
@@ -945,16 +929,20 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       &:last-child
         margin-bottom: 0px
 
-.burger_active
-  z-index: 11
-  span
-    margin-bottom: -2px
-    &:nth-child(1)
-      transform: translateY(3px) rotate(-45deg)
-    &:nth-child(2)
-      display: none
-    &:nth-child(3)
-      transform: translateY(3px) rotate(45deg)
+  .burger_active
+    z-index: 11
+    span
+      margin-bottom: -2px
+      &:nth-child(1)
+        transform: translateY(3px) rotate(-45deg)
+      &:nth-child(2)
+        display: none
+      &:nth-child(3)
+        transform: translateY(3px) rotate(45deg)
+
+  .burger-pets span
+    background: $color-dark-l
+
 
 @media (max-width: 720px)
 
@@ -962,6 +950,15 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     width: 100%
     max-width: 550px
     justify-content: center
+
+@media (max-width: 570px)
+
+  .page-pets__cards-container
+    justify-content: center
+    margin-top: 42px
+
+  .contant-page-pets
+    margin-bottom: 0
 
 @media (max-width: 400px)
 
@@ -1118,6 +1115,20 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   .footer__image
     width: 260px
     height: 269px
+
+  .contant-page-pets
+    margin-top: 42px
+    &__heading
+      max-width: 300
+      max-height: 64px
+    &__text
+      font-size: 25px
+
+  .page-pets__container
+    padding-bottom: 44px
+
+  .page-pets__container-nav
+    width: 300px
 
 @media (max-width: 320px)
 
