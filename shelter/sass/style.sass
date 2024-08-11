@@ -164,11 +164,11 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     padding-bottom: 78px
     height: 322px
     &_title
-      width: 310px
+      width: 350px
       font-family: Georgia
       font-weight: 400
       font-size: 44px
-      letter-spacing: 0.06em
+      letter-spacing: 0.00em
       line-height: 130%
       color: $color-light-xl
     &_subtitle
@@ -234,14 +234,13 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   &__picture
     display: flex
     width: 420px
-    // height: 408px
   &__description
     display: flex
     flex-direction: column
     justify-content: space-between
     width: 100%
     max-width: 430px
-    // height: 380px
+    height: 380px
     &_title
       width: 100%
       max-width: 370px
@@ -268,7 +267,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     width: 94%
     max-width: 1200px
     margin: 0 auto
-    // padding-bottom: 20px
 
 .content-third
   display: flex
@@ -450,7 +448,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .donation
   display: flex
   justify-content: center
-  min-height: 463px
+  min-height: 462px
   background: $color-light-l
   &__container
     display: flex
@@ -532,13 +530,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 .footer
   display: flex
   justify-content: center
-  // min-width: 1280px
-  // min-height: 350px
   background: $start-screen-gradient-background
   &__container
     display: flex
     justify-content: center
-    // align-items: flex-end
     width: 94%
     max-width: 1200px
     margin: 0 auto
@@ -547,10 +542,9 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: space-between
   flex-wrap: wrap
-  padding: 15px 34px 0
+  padding: 40px 0px 0
   width: 100%
   max-width: 1200px
-  // height: 310px
   &__contacts
     display: flex
     flex-direction: column
@@ -617,10 +611,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 .place__content
   display: flex
+  height: 35px
   text-decoration: none
   transition: all 0.3s
   &_icon
-    padding-top: 5px
     margin-right: 20px
   &_text
     display: flex
@@ -640,7 +634,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   flex-direction: column
   justify-content: center
-  // height: 1812px
 
 .pets
   &__logo
@@ -667,8 +660,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   display: flex
   justify-content: center
   align-items: center
-  // min-width: 1280px
-  // min-height: 1342px
   background-color: $color-light-l
   margin-top: 120px
   &__container
@@ -677,8 +668,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     align-items: center
     width: 94%
     max-width: 1200px
-    // margin: 0 auto
-    // height: 1162px
     padding-bottom: 80px 0 100px
   &__cards-container
     display: flex
@@ -687,6 +676,8 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     align-content: space-around
     height: 930px
     overflow: hidden
+    margin-top: 45px
+    margin-bottom: 45px
     &_card
       display: flex
       flex-direction: column
@@ -719,8 +710,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   align-items: center
   width: 1200px
   margin-top: 80px
-  margin-bottom: 76px
-  // height: 1162px
+  margin-bottom: 100px
   &__heading
     max-width: 400px
     max-height: 90px
@@ -777,13 +767,10 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       border: 2px solid $color-primary-light
       background: $color-primary-light
 
-
 @media (max-width: 1279px)
 
-  .header
-    width: 92%
-
   .helper
+    width: 92%
     &__list
       gap: 55px 60px
     &__list-item
@@ -798,7 +785,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     max-width: 1200px
     overflow: hidden
     row-gap: 30px
-    // height: 1365
     margin-top: 30px
     margin-bottom: 40px
 
@@ -842,6 +828,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     padding-top: 150px
     &__info
       width: 65%
+      &_title
       &_button
         margin: 0 auto
     &__puppy
@@ -850,9 +837,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
   .content-second
     flex-direction: column
+    justify-content: space-between
+    height: 868px
+    &__description
+      height: 380px
     &__picture
       order: 1
-      // margin: 0 auto
       justify-content: center
       margin-top: 80px
 
@@ -870,6 +860,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     width: 100%
     max-width: 580px
     height: 1365px
+
+  .contant-page-pets
+    margin-bottom: 76px
+
+  .content-footer
+    padding: 15px 33px 0
 
 @media (max-width: 768px)
 
@@ -943,7 +939,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   .burger-pets span
     background: $color-dark-l
 
-
 @media (max-width: 720px)
 
   .content-third__slider
@@ -969,11 +964,13 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     &__info
       width: 100%
       text-align: center
+      padding-bottom: 78px
       &_title
         box-sizing: border-box
         width: 100%
         padding: 0px 40px
         font-size: 25px
+        letter-spacing: 0.06em
     &__puppy
       width: 260px
       height: 273px
@@ -987,28 +984,28 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       max-height: 353px
 
   .content-second
+    height: 890px
     &__description
       box-sizing: border-box
       text-align: justify
       padding: 0px 15px
+      &_text
+        text-align: center
+        font-size: 25px
       &_title
         padding-bottom: 25px
       &_subtitle :first-child
           padding-bottom: 22px
     &__picture
       margin-top: 18px
-      // height: 0
-
-  .content-second__description_text
-    text-align: center
-    font-size: 25px
+      width: 260px
 
   .pets__container
     max-width: 300px
     padding: 42px 0
 
   .content-third
-    height: 708px
+    height: 707px
     padding: 0
     &__description
       max-height: 64px
@@ -1021,6 +1018,12 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       height: 507px
       &_button
         order: 1
+
+  .arrow
+    &__left
+      margin-right: 14px
+    &__right
+      margin-left: 14px
 
   .content-fourth
     padding: 42px 0
