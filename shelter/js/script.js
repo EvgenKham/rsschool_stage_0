@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const menu = document.querySelector('.nav-menu');
     const menuItem = document.querySelectorAll('.nav-menu__list-item');
     const burger = document.querySelector('.burger');
-    const firstScreen  = document.querySelector('.start-screen');
+    const main  = document.querySelector('main');
     const body = document.body;
 
 
@@ -13,12 +13,12 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (burger.classList.contains('burger_active')) {
             burger.classList.remove('burger_active');
             menu.classList.remove('nav-menu_active');
-            firstScreen.classList.remove('backgroun-opacity');
+            main.classList.remove('backgroun-opacity');
             body.classList.remove('menu-opened');
         } else if (e.target === burger) {
             burger.classList.toggle('burger_active');
             menu.classList.toggle('nav-menu_active');
-            firstScreen.classList.toggle('backgroun-opacity');
+            main.classList.toggle('backgroun-opacity');
             body.classList.toggle('menu-opened');
         }
     });
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', () => {
             burger.classList.toggle('burger_active');
             menu.classList.toggle('nav-menu_active');
-            firstScreen.classList.toggle('backgroun-opacity');
+            main.classList.toggle('backgroun-opacity');
             body.classList.toggle('menu-opened');
         })
     })
