@@ -74,6 +74,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   position: relative
   height: 100%
   margin: 0 auto
+  overflow-x: hidden
 
 .header
   position: absolute
@@ -962,14 +963,11 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     background-color: $color-light-xl
 
   .backgroun-opacity
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background: rgba(41, 41, 41, 0.6)
+    position: relative
     opacity: 0.6
-    z-index: 5
+
+  .menu-opened
+    overflow: hidden
 
 @media (max-width: 720px)
 
@@ -991,10 +989,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
   .burger
     right: 1px
-
-  // .nav-menu_active
-  //   right: -15px
-
 
   .content-first
     &__info
