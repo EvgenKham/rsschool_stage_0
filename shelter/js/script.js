@@ -1,32 +1,48 @@
-console.log(```
-  ---Самопроверка---
-1. Страница Main при ширине экрана 1280px: +14
-    Все блоки соответствуют требованиям
+//Поведение 'бургера' и отображение меню
+window.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('.nav-menu');
+    const menuItem = document.querySelectorAll('.nav-menu__list-item');
+    const burger = document.querySelector('.burger');
+    const firstScreen  = document.querySelector('.start-screen');
+    const body = document.body;
 
-2. Страница Main при ширине экрана 768px: +14
-    Все блоки соответствуют требованиям
 
-3. Страница Main при ширине экрана 320px: +14
-    Все блоки соответствуют требованиям
+    body.addEventListener('click', (e) => {
+        if (e.target.classList.contains('header__nav')){
+            return false;
+        } else if (burger.classList.contains('burger_active')) {
+            burger.classList.remove('burger_active');
+            menu.classList.remove('nav-menu_active');
+            firstScreen.classList.remove('backgroun-opacity');
+            body.classList.remove('menu-opened');
+        } else if (e.target === burger) {
+            burger.classList.toggle('burger_active');
+            menu.classList.toggle('nav-menu_active');
+            firstScreen.classList.toggle('backgroun-opacity');
+            body.classList.toggle('menu-opened');
+        }
+    });
 
-4. Страница Pets при ширине экрана 1280px: +6
-    Все блоки соответствуют требованиям
+    menuItem.forEach(item => {
+        item.addEventListener('click', () => {
+            burger.classList.toggle('burger_active');
+            menu.classList.toggle('nav-menu_active');
+            firstScreen.classList.toggle('backgroun-opacity');
+            body.classList.toggle('menu-opened');
+        })
+    })
+})
 
-5. Страница Pets при ширине экрана 768px: +6
-    Все блоки соответствуют требованиям
+// Плавный скролл до выбранного элемента из меню
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
 
-6. Страница Pets при ширине экрана 320px: +6
-    Все блоки соответствуют требованиям
-
-8. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки,\n
-справа от отдельных блоков не появляются белые поля.\n
-Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20
-
-9. Верстка резиновая: +8
-
-10. При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4
-
-11. Верстка обеих страниц валидная: +8
-
-Общее количество баллов: 100
-  ```);
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+};
