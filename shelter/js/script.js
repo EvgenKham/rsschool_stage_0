@@ -121,7 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
             main.classList.toggle('backgroun-opacity');
             body.classList.toggle('menu-opened');
         })
-    })
+    });
 })
 
 // Плавный скролл до выбранного элемента из меню
@@ -180,20 +180,62 @@ function createCard(path, altText, name) {
     return cadrWrapper;
 };
 
-//Выбор 3 случайных животных
-function chooseUnique(){
-    let uniquePets = [];
-    let uniqueNumbers = [];
+function getCurrentPets(){
+    let pets = document.querySelectorAll('.pet_name');
+    namePets = [];
+    let currentPets = [];
 
-    for (let i = 0; uniqueNumbers.length < 3; i++){
+    pets.forEach( pet => namePets.push(pet.innerHTML));
+
+    namePets.forEach( name => {
+        petsJson.forEach( pet => {
+            if(name === pet.name){
+                currentPets.push(pet);
+            }
+        });
+    });
+
+    return currentPets;
+};
+
+function getWidthScreen() {
+    let count = 3;
+
+    if ( window.innerWidth >= 1021 ){
+        count = 3;
+    } else if ( window.innerWidth >= 711 && window.innerWidth < 1020 ){
+        count = 2;
+    } else if ( window.innerWidth <= 710 ){
+        count = 1;
+    }
+    return count;
+}
+
+//Выбор случайных ID животных, количество зависит от велечины экрана
+function createUniqueId(current = []){
+    let uniqueNumbers = [];
+    let count = getWidthScreen();
+
+    let currentsId = current;
+
+    //Выбор случайных и неповторяющихся id животных
+    for (let i = 0; uniqueNumbers.length < count; i++){
         let number = Math.floor(Math.random() * (petsJson.length));
-        if (uniqueNumbers.includes(number)){
+        if (uniqueNumbers.includes(number) || currentsId.includes(number)){
             continue;
         }
         uniqueNumbers.push(number);
     }
+    // console.log(uniqueNumbers);
+    return uniqueNumbers;
+};
 
-    uniqueNumbers.forEach( number => {
+//Формирование массива животных
+function createSeqPets(uniqueNum){
+    let uniquePets = [];
+    let numbers = uniqueNum;
+
+    numbers.forEach( number => {
         for ( let [key, value] of Object.entries(petsJson)){
             if ( String(number) === key ){
                 uniquePets.push(value);
@@ -201,20 +243,31 @@ function chooseUnique(){
         }
     });
 
+    // console.log(uniquePets);
     return uniquePets;
-};
+}
 
-//Начальное создание карточек при первичной загрузке
-function createFragment(){
-    // console.log(chooseUnique());
-    const pets = chooseUnique();
+//Cоздание карточек
+function createFragment( unique = []){
+    let numbers = [];
+    let pets = [];
+    if ( unique.length === 0 ){
+        numbers = createUniqueId();
+        pets = createSeqPets(numbers);
+    } else {
+        numbers = createUniqueId(unique);
+        pets =  createSeqPets(numbers);
+    }
+
+    console.log(numbers);
+    console.log(pets);
+
     let slider = document.querySelector('.content-third__slider');
     let fragment = new DocumentFragment();
     let pathPet = '';
     let namePet = '';
     let altPet = '';
 
-    // console.log(pets.length);
     for(let i = 0; i < pets.length; i++) {
         pathPet = pets[i].img;
         namePet = pets[i].name;
@@ -231,6 +284,59 @@ console.log(window.innerWidth);
 // 711 - 1020px = 2 животных
 // < и 710px = 1 животное
 
-
 createFragment();
 
+function getNumbersByNames(){
+    let currSeq = getCurrentPets();
+    let numbers = [];
+
+    currSeq.forEach( currentPet => {
+        for ( let i = 0; i < petsJson.length; i++){
+            if ( petsJson[i].name === currentPet.name){
+                numbers.push(i);
+            }
+        }
+    })
+
+    return numbers;
+}
+
+function slide(){
+    const rightArrow = document.querySelector('.arrow__right');
+    const leftArrow = document.querySelector('.arrow__left');
+    const sliderContainer = document.querySelector('.content-third__content');
+    const cards = document.querySelectorAll('.content-third__slider_card');
+    console.log(cards);
+
+    sliderContainer.addEventListener( 'click', (e) => {
+        const parent = e.target.closest('div');
+
+        const currNumbers = getNumbersByNames();
+        const nextNumbers = createUniqueId(currNumbers);
+        console.log(currNumbers);
+        console.log(nextNumbers);
+
+        let currSeq = getCurrentPets();
+        let nextSeq = createSeqPets(nextNumbers);
+        let prevSeq = [];
+
+        if(parent === rightArrow){
+            console.log('rigth');
+            prevSeq = currSeq;
+            currSeq = nextSeq
+            nextSeq = [];
+            console.log(prevSeq);
+            console.log(currSeq);
+            console.log(nextSeq);
+            cards.forEach( card => card.remove() );
+            createFragment(nextNumbers);
+        }
+        if(parent === leftArrow){
+           console.log('left');
+        }
+
+    });
+
+};
+
+slide();
