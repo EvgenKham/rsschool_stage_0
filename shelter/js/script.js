@@ -138,17 +138,6 @@ for (let smoothLink of smoothLinks) {
     });
 };
 
-//Реализация слайдера-карусели на странице Main
-//Получаем данные о животных из json файла
-// let pets = [];
-// fetch('js/pets.json')
-//   .then(response => response.json())
-//   .then(petsJson => {
-//     for (let i = 0; i < petsJson.length; i++ ){
-//         pets[i] = petsJson[i];
-//     }
-// });
-
 //Создание карточки с животным
 function createCard(path, altText, name) {
 
@@ -180,24 +169,6 @@ function createCard(path, altText, name) {
     return cadrWrapper;
 };
 
-function getCurrentPets(){
-    let pets = document.querySelectorAll('.pet_name');
-    namePets = [];
-    let currentPets = [];
-
-    pets.forEach( pet => namePets.push(pet.innerHTML));
-
-    namePets.forEach( name => {
-        petsJson.forEach( pet => {
-            if(name === pet.name){
-                currentPets.push(pet);
-            }
-        });
-    });
-
-    return currentPets;
-};
-
 function getWidthScreen() {
     let count = 3;
 
@@ -211,11 +182,33 @@ function getWidthScreen() {
     return count;
 }
 
+function getCurrentPets(){
+    let pets = document.querySelectorAll('.pet_name');
+    namePets = [];
+    let currentPets = [];
+    let count = getWidthScreen();
+
+    // pets.forEach( pet => namePets.push(pet.innerHTML));
+
+    for ( let i = 0; i < count; i++){
+        namePets.push(pets[i].innerHTML)
+    }
+
+    namePets.forEach( name => {
+        petsJson.forEach( pet => {
+            if(name === pet.name){
+                currentPets.push(pet);
+            }
+        });
+    });
+
+    return currentPets;
+};
+
 //Выбор случайных ID животных, количество зависит от велечины экрана
 function createUniqueId(current = []){
     let uniqueNumbers = [];
     let count = getWidthScreen();
-
     let currentsId = current;
 
     //Выбор случайных и неповторяющихся id животных
@@ -226,7 +219,7 @@ function createUniqueId(current = []){
         }
         uniqueNumbers.push(number);
     }
-    // console.log(uniqueNumbers);
+
     return uniqueNumbers;
 };
 
@@ -247,7 +240,7 @@ function createSeqPets(uniqueNum){
     return uniquePets;
 }
 
-//Cоздание карточек
+//Cоздание слайдера
 function createFragment( unique = []){
     let numbers = [];
     let pets = [];
@@ -255,12 +248,8 @@ function createFragment( unique = []){
         numbers = createUniqueId();
         pets = createSeqPets(numbers);
     } else {
-        numbers = createUniqueId(unique);
-        pets =  createSeqPets(numbers);
+        pets = unique;
     }
-
-    console.log(numbers);
-    console.log(pets);
 
     let slider = document.querySelector('.content-third__slider');
     let fragment = new DocumentFragment();
@@ -286,8 +275,15 @@ console.log(window.innerWidth);
 
 createFragment();
 
-function getNumbersByNames(){
-    let currSeq = getCurrentPets();
+function getNumbersByNames(sequence = []){
+    let currSeq = [];
+    let count = getWidthScreen();
+    if(sequence.length === 0){
+       currSeq = getCurrentPets();
+    } else {
+        currSeq = sequence.slice(0, count);
+    }
+
     let numbers = [];
 
     currSeq.forEach( currentPet => {
@@ -301,42 +297,40 @@ function getNumbersByNames(){
     return numbers;
 }
 
-function slide(){
+window.addEventListener('DOMContentLoaded', () => {
     const rightArrow = document.querySelector('.arrow__right');
     const leftArrow = document.querySelector('.arrow__left');
     const sliderContainer = document.querySelector('.content-third__content');
-    const cards = document.querySelectorAll('.content-third__slider_card');
-    console.log(cards);
+
+    let currNumbers = getNumbersByNames();
+    let nextNumbers = createUniqueId(currNumbers);
+    let prevNumbers = createUniqueId(currNumbers);
+    let currSeq = getCurrentPets();
+    let nextSeq = createSeqPets(nextNumbers);
+    let prevSeq = createSeqPets(prevNumbers);
 
     sliderContainer.addEventListener( 'click', (e) => {
         const parent = e.target.closest('div');
-
-        const currNumbers = getNumbersByNames();
-        const nextNumbers = createUniqueId(currNumbers);
-        console.log(currNumbers);
-        console.log(nextNumbers);
-
-        let currSeq = getCurrentPets();
-        let nextSeq = createSeqPets(nextNumbers);
-        let prevSeq = [];
-
+        const cards = document.querySelectorAll('.content-third__slider_card');
         if(parent === rightArrow){
-            console.log('rigth');
             prevSeq = currSeq;
-            currSeq = nextSeq
-            nextSeq = [];
-            console.log(prevSeq);
-            console.log(currSeq);
-            console.log(nextSeq);
+            currSeq = nextSeq;
+            currNumbers = getNumbersByNames(nextSeq);
+            nextNumbers = createUniqueId(currNumbers);
+            nextSeq = createSeqPets(nextNumbers);
+
             cards.forEach( card => card.remove() );
-            createFragment(nextNumbers);
+            createFragment(currSeq);
         }
         if(parent === leftArrow){
-           console.log('left');
+            nextSeq = currSeq;
+            currSeq = prevSeq;
+            currNumbers = getNumbersByNames(prevSeq);
+            prevNumbers = createUniqueId(currNumbers);
+            prevSeq = createSeqPets(prevNumbers);
+
+            cards.forEach( card => card.remove() );
+            createFragment(currSeq);
         }
-
     });
-
-};
-
-slide();
+})
