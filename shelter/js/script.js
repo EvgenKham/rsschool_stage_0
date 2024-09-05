@@ -170,15 +170,29 @@ function createCard(path, altText, name) {
 };
 
 function getWidthScreen() {
+    let width = document.documentElement.clientWidth
     let count = 3;
 
-    if ( window.innerWidth >= 1021 ){
+    if ( width >= 1021 ){
         count = 3;
-    } else if ( window.innerWidth >= 711 && window.innerWidth < 1020 ){
+    } else if ( width >= 711 && width < 1020 ){
         count = 2;
-    } else if ( window.innerWidth <= 710 ){
+    } else if ( width <= 710 ){
         count = 1;
     }
+
+    // window.addEventListener('resize', () => {
+    //     let width = document.documentElement.clientWidth
+
+    //     if ( width >= 1021 ){
+    //         count = 3;
+    //     } else if ( width >= 711 && width < 1020 ){
+    //         count = 2;
+    //     } else if ( width <= 710 ){
+    //         count = 1;
+    //     }
+    // });
+
     return count;
 }
 
@@ -188,10 +202,8 @@ function getCurrentPets(){
     let currentPets = [];
     let count = getWidthScreen();
 
-    // pets.forEach( pet => namePets.push(pet.innerHTML));
-
     for ( let i = 0; i < count; i++){
-        namePets.push(pets[i].innerHTML)
+        namePets.push(pets[i].innerHTML);
     }
 
     namePets.forEach( name => {
@@ -219,6 +231,7 @@ function createUniqueId(current = []){
         }
         uniqueNumbers.push(number);
     }
+    console.log();
 
     return uniqueNumbers;
 };
@@ -297,6 +310,27 @@ function getNumbersByNames(sequence = []){
     return numbers;
 }
 
+// window.addEventListener('resize', () => {
+//     const sliderContainer = document.querySelector('.content-third__slider');
+
+//     let width = document.documentElement.clientWidth
+//     let count = 0;
+
+//     let currNumbers = getNumbersByNames();
+//     let nextNumbers = createUniqueId(currNumbers);
+//     console.log(currNumbers);
+//     console.log(nextNumbers);
+
+//     if ( width >= 1021 ){
+//         count = 3;
+//     } else if ( width >= 711 && width < 1020 ){
+//         count = 2;
+//     } else if ( width <= 710 ){
+//         count = 1;
+//     }
+// });
+
+
 window.addEventListener('DOMContentLoaded', () => {
     const rightArrow = document.querySelector('.arrow__right');
     const leftArrow = document.querySelector('.arrow__left');
@@ -308,6 +342,27 @@ window.addEventListener('DOMContentLoaded', () => {
     let currSeq = getCurrentPets();
     let nextSeq = createSeqPets(nextNumbers);
     let prevSeq = createSeqPets(prevNumbers);
+    // let count = currSeq.length;
+
+    // window.addEventListener('resize', () => {
+
+    //     let width = document.documentElement.clientWidth
+
+    //     if ( width >= 1021 ){
+    //         count = 3;
+    //     } else if ( width >= 711 && width < 1020 ){
+    //         count = 2;
+    //     } else if ( width <= 710 ){
+    //         count = 1;
+    //     }
+    // });
+
+    // currSeq = currSeq.slice(0, count);
+    // nextSeq = nextSeq.slice(0, count);
+    // prevSeq = prevSeq.slice(0, count);
+
+    // console.log(currSeq);
+
 
     sliderContainer.addEventListener( 'click', (e) => {
         const parent = e.target.closest('div');
