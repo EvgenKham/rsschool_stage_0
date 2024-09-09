@@ -142,7 +142,7 @@ for (let smoothLink of smoothLinks) {
 function createCard(path, altText, name) {
 
     let cadrWrapper = document.createElement('div');
-    cadrWrapper.classList.add('content-third__slider_card', 'pet');
+    cadrWrapper.classList.add('content-third__slider_card', 'pet', 'swipe');
 
     let img = document.createElement('img');
     img.classList.add('pet_image');
@@ -295,11 +295,26 @@ function getNumbersByNames(sequence = []){
     })
 
     return numbers;
-}
+};
+
+function swipe(direction) {
+    const slider = document.querySelector('.content-third__slider');
+    slider.classList.remove('left');
+    slider.classList.remove('right');
+
+    if (direction === 'right') {
+        slider.classList.add('right');
+    } else if (direction === 'left') {
+        slider.classList.add('left');
+    } else {
+        // slider.classList.remove('left');
+        // slider.classList.remove('right');
+    }
+};
 
 window.addEventListener('DOMContentLoaded', () => {
-    const rightArrow = document.querySelector('.arrow__right');
-    const leftArrow = document.querySelector('.arrow__left');
+    const rightButton = document.querySelector('.arrow__right');
+    const leftButton = document.querySelector('.arrow__left');
     const sliderContainer = document.querySelector('.content-third__content');
 
     let currNumbers = getNumbersByNames();
@@ -344,43 +359,50 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    //Пролистывание последовательностей вправо и влево
+    //Пролистывание последовательностей вправо и влево с анимацией
     sliderContainer.addEventListener( 'click', (e) => {
         const parent = e.target.closest('div');
         const cards = document.querySelectorAll('.content-third__slider_card');
-        if(parent === rightArrow){
+        const slider = document.querySelector('.content-third__slider');
+        if(parent === rightButton){
             prevSeq = currSeq;
             currSeq = nextSeq;
             currNumbers = getNumbersByNames(nextSeq);
             nextNumbers = createUniqueId(currNumbers);
             nextSeq = createSeqPets(nextNumbers);
 
-            cards.forEach( card => card.remove() );
+            cards.forEach( card => {
+                card.classList.add('right');
+                setTimeout(() => card.remove(), 500);
+            });
+
             createFragment(currSeq);
+            let newCards = document.querySelectorAll('.content-third__slider_card');
+            console.log(newCards);
+            for ( let i = newCards.length - 1; i >= newCards.length / 2; i--){
+                newCards[i].classList.add('left');
+                setTimeout(() => newCards[i].classList.remove('left'), 500);
+            }
+
         }
-        if(parent === leftArrow){
+        if(parent === leftButton){
             nextSeq = currSeq;
             currSeq = prevSeq;
             currNumbers = getNumbersByNames(prevSeq);
             prevNumbers = createUniqueId(currNumbers);
             prevSeq = createSeqPets(prevNumbers);
 
-            cards.forEach( card => card.remove() );
+            cards.forEach( card => {
+                card.classList.add('left');
+                setTimeout(() => card.remove(), 500);
+            });
+
             createFragment(currSeq);
+            let newCards = document.querySelectorAll('.content-third__slider_card');
+            for ( let i = newCards.length - 1; i >= newCards.length / 2; i--){
+                newCards[i].classList.add('right');
+                setTimeout(() => newCards[i].classList.remove('right'), 500);
+            }
         }
     });
-
-    // (function () {
-    //     const horizontScroll = document.querySelector('.content-third__slider_card');
-    //     const leftButton = document.querySelector('.arrow__left');
-    //     const rightButton = document.querySelector('.arrow__right');
-
-    //     rightButton.addEventListener( 'click', () => {
-    //         horizontScroll.classList.add('scroll__right');
-    //     });
-
-    //     leftButton.addEventListener( 'click', () => {
-    //         horizontScroll.classList.add('scroll__left');
-    //     });
-    // }());
 })

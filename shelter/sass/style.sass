@@ -307,6 +307,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   &__slider
     display: flex
     justify-content: space-between
+    transform: translate(0px, 0px)
     &_card
       display: flex
       flex-direction: column
@@ -325,6 +326,17 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
           transition: all 0.5s
   &__button-container_item
       width: 260px
+
+.swipe
+  transform: translate(0px, 0px)
+  transition: 0.4s ease-in-out
+.left
+  transform: translate(-1700px, 0px)
+
+.right
+  transform: translate(1700px, 0px)
+
+
 
 .pet
   &_image
@@ -765,14 +777,14 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       border: 2px solid $color-primary-light
       background: $color-primary-light
 
-.scroll
-  scroll-behavior: smooth
-  animation-timing-function: ease-in-out
-  transition: transform 1s
-  &__right
-    transform: translateX(1000px)
-  &__left
-    transform: translateX(-1000px)
+// .scroll
+//   scroll-behavior: smooth
+//   transition: transform 1s
+//   animation-timing-function: ease-in-out
+//   &__right
+//     right: 1000px
+//   &__left
+//     left: -1000px
 
 @media (max-width: 1279px)
 
