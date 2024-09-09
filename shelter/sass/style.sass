@@ -765,6 +765,15 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       border: 2px solid $color-primary-light
       background: $color-primary-light
 
+.scroll
+  scroll-behavior: smooth
+  animation-timing-function: ease-in-out
+  transition: transform 1s
+  &__right
+    transform: translateX(1000px)
+  &__left
+    transform: translateX(-1000px)
+
 @media (max-width: 1279px)
 
   .header
