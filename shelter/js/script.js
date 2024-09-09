@@ -138,7 +138,7 @@ for (let smoothLink of smoothLinks) {
     });
 };
 
-//Создание карточки с животным
+//Создание одной карточки с животным
 function createCard(path, altText, name) {
 
     let cadrWrapper = document.createElement('div');
@@ -169,8 +169,10 @@ function createCard(path, altText, name) {
     return cadrWrapper;
 };
 
+//Получение количества карточек при стартовой загрузке и перезагрузке страницы,
+//в зависимости от ширины экрана
 function getWidthScreen() {
-    let width = document.documentElement.clientWidth
+    let width = document.documentElement.clientWidth;
     let count = 3;
 
     if ( width >= 1021 ){
@@ -181,18 +183,6 @@ function getWidthScreen() {
         count = 1;
     }
 
-    // window.addEventListener('resize', () => {
-    //     let width = document.documentElement.clientWidth
-
-    //     if ( width >= 1021 ){
-    //         count = 3;
-    //     } else if ( width >= 711 && width < 1020 ){
-    //         count = 2;
-    //     } else if ( width <= 710 ){
-    //         count = 1;
-    //     }
-    // });
-
     return count;
 }
 
@@ -200,9 +190,9 @@ function getCurrentPets(){
     let pets = document.querySelectorAll('.pet_name');
     namePets = [];
     let currentPets = [];
-    let count = getWidthScreen();
+    // let count = getWidthScreen();
 
-    for ( let i = 0; i < count; i++){
+    for ( let i = 0; i < pets.length; i++){
         namePets.push(pets[i].innerHTML);
     }
 
@@ -217,7 +207,7 @@ function getCurrentPets(){
     return currentPets;
 };
 
-//Выбор случайных ID животных, количество зависит от велечины экрана
+//Выбор случайных ID животных, количество зависит от величины экрана
 function createUniqueId(current = []){
     let uniqueNumbers = [];
     let count = getWidthScreen();
@@ -236,6 +226,7 @@ function createUniqueId(current = []){
     return uniqueNumbers;
 };
 
+
 //Формирование массива животных
 function createSeqPets(uniqueNum){
     let uniquePets = [];
@@ -249,11 +240,11 @@ function createSeqPets(uniqueNum){
         }
     });
 
-    // console.log(uniquePets);
+    console.log(uniquePets);
     return uniquePets;
 }
 
-//Cоздание слайдера
+//Отрисовка карточек с животными в слайдере
 function createFragment( unique = []){
     let numbers = [];
     let pets = [];
@@ -281,13 +272,9 @@ function createFragment( unique = []){
     slider.appendChild(fragment);
 };
 
-console.log(window.innerWidth);
-// 1021px и > = 3 животных
-// 711 - 1020px = 2 животных
-// < и 710px = 1 животное
-
 createFragment();
 
+//Получение id животного в зависимости от его имени
 function getNumbersByNames(sequence = []){
     let currSeq = [];
     let count = getWidthScreen();
@@ -310,27 +297,6 @@ function getNumbersByNames(sequence = []){
     return numbers;
 }
 
-// window.addEventListener('resize', () => {
-//     const sliderContainer = document.querySelector('.content-third__slider');
-
-//     let width = document.documentElement.clientWidth
-//     let count = 0;
-
-//     let currNumbers = getNumbersByNames();
-//     let nextNumbers = createUniqueId(currNumbers);
-//     console.log(currNumbers);
-//     console.log(nextNumbers);
-
-//     if ( width >= 1021 ){
-//         count = 3;
-//     } else if ( width >= 711 && width < 1020 ){
-//         count = 2;
-//     } else if ( width <= 710 ){
-//         count = 1;
-//     }
-// });
-
-
 window.addEventListener('DOMContentLoaded', () => {
     const rightArrow = document.querySelector('.arrow__right');
     const leftArrow = document.querySelector('.arrow__left');
@@ -342,28 +308,43 @@ window.addEventListener('DOMContentLoaded', () => {
     let currSeq = getCurrentPets();
     let nextSeq = createSeqPets(nextNumbers);
     let prevSeq = createSeqPets(prevNumbers);
-    // let count = currSeq.length;
 
-    // window.addEventListener('resize', () => {
+    //Обработчик на увеличение и уменьшение карточек в слайдере без перезагрузки,
+    //при изменении ширины экрана. Если изменяется количество видимых карточек,
+    //то следующая и предыдущая последовательности тоже меняются
+    window.addEventListener('resize', () => {
+        const sliderContainer = document.querySelector('.content-third__slider');
 
-    //     let width = document.documentElement.clientWidth
+        let count = getWidthScreen();
 
-    //     if ( width >= 1021 ){
-    //         count = 3;
-    //     } else if ( width >= 711 && width < 1020 ){
-    //         count = 2;
-    //     } else if ( width <= 710 ){
-    //         count = 1;
-    //     }
-    // });
+        let currNumbers = getNumbersByNames();
+        let currentPets = getCurrentPets();
 
-    // currSeq = currSeq.slice(0, count);
-    // nextSeq = nextSeq.slice(0, count);
-    // prevSeq = prevSeq.slice(0, count);
+        //Находим id отличающийся от исходного и создаем из него массив из одного элемента
+        let id = createUniqueId(currNumbers).slice(0,1);
 
-    // console.log(currSeq);
+        if ( count > currentPets.length) {
+            let pet = createSeqPets(id);
+            createFragment(pet);
+            currNumbers = getNumbersByNames();
+            nextNumbers = createUniqueId(currNumbers);
+            prevNumbers = createUniqueId(currNumbers);
+            currSeq = getCurrentPets();
+            nextSeq = createSeqPets(nextNumbers);
+            prevSeq = createSeqPets(prevNumbers);
 
+        } else if ( count < currentPets.length ){
+            sliderContainer.lastChild.remove();
+            currNumbers = getNumbersByNames();
+            nextNumbers = createUniqueId(currNumbers);
+            prevNumbers = createUniqueId(currNumbers);
+            currSeq = getCurrentPets();
+            nextSeq = createSeqPets(nextNumbers);
+            prevSeq = createSeqPets(prevNumbers);
+        }
+    });
 
+    //Пролистывание последовательностей вправо и влево
     sliderContainer.addEventListener( 'click', (e) => {
         const parent = e.target.closest('div');
         const cards = document.querySelectorAll('.content-third__slider_card');
@@ -388,4 +369,18 @@ window.addEventListener('DOMContentLoaded', () => {
             createFragment(currSeq);
         }
     });
+
+    // (function () {
+    //     const horizontScroll = document.querySelector('.content-third__slider_card');
+    //     const leftButton = document.querySelector('.arrow__left');
+    //     const rightButton = document.querySelector('.arrow__right');
+
+    //     rightButton.addEventListener( 'click', () => {
+    //         horizontScroll.classList.add('scroll__right');
+    //     });
+
+    //     leftButton.addEventListener( 'click', () => {
+    //         horizontScroll.classList.add('scroll__left');
+    //     });
+    // }());
 })
