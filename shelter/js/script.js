@@ -297,20 +297,20 @@ function getNumbersByNames(sequence = []){
     return numbers;
 };
 
-function swipe(direction) {
-    const slider = document.querySelector('.content-third__slider');
-    slider.classList.remove('left');
-    slider.classList.remove('right');
+// function swipe(direction) {
+//     const slider = document.querySelector('.content-third__slider');
+//     slider.classList.remove('left');
+//     slider.classList.remove('right');
 
-    if (direction === 'right') {
-        slider.classList.add('right');
-    } else if (direction === 'left') {
-        slider.classList.add('left');
-    } else {
-        // slider.classList.remove('left');
-        // slider.classList.remove('right');
-    }
-};
+//     if (direction === 'right') {
+//         slider.classList.add('right');
+//     } else if (direction === 'left') {
+//         slider.classList.add('left');
+//     } else {
+//         slider.classList.remove('left');
+//         slider.classList.remove('right');
+//     }
+// };
 
 window.addEventListener('DOMContentLoaded', () => {
     const rightButton = document.querySelector('.arrow__right');
