@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "syle.css",
+	"sources": [
+		"../sass/syle.sass"
+	],
+	"sourcesContent": [
+		"html {\n  scroll-behavior: smooth; }\n\nh1, h2, h3, h4, h5, h6, p {\n  margin: 0; }\n\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: Georgia, 'Times New Roman', Times, serif;\n  color: black;\n  background: linear-gradient(45deg, rgb(86, 190, 247) 24%, rgb(86, 210, 214) 38%, rgb(219, 236, 118) 95%); }\n\n\n.wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  width: 0 auto;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n"
+	],
+	"names": [],
+	"mappings": ";AAAA,AAAA,IAAI,CAAC;EACH,eAAe,EAAE,MAAM;CAAG;;;AAE5B,AAAA,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC,CAAC;EACxB,MAAM,EAAE,CAAC;CAAG;;;AAEd,AAAA,CAAC,CAAC;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CAAG;;;AAE3B,AAAA,IAAI,CAAC;EACH,WAAW,EAAE,wCAAwC;EACrD,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,6DAA4F;CAAG;;;AAG7G,AAAA,QAAQ,CAAC;EACP,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,MAAM;EACb,GAAG,EAAE,CAAC;EACN,MAAM,EAAE,CAAC;EACT,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,CAAC;CAAG"
+}
