@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6, p {
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: black;
+  font-size: 6.25%;
 }
 
 .image-background {
@@ -23,5 +24,183 @@ body {
   width: 0 auto;
   height: 100%;
   z-index: -100;
+  opacity: 0.8;
   filter: blur(0.5rem);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 2;
+  width: 23rem;
+  height: 28rem;
+  overflow: hidden;
+  background: black;
+  border-radius: 1rem;
+  box-shadow: 0 0 10rem black;
+}
+
+.song-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 70%;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 2;
+  width: 100%;
+  background: #525252;
+  background: linear-gradient(52deg, #525252 0%, #969696 49%, #2e002f 100%);
+}
+
+.song__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song__description_artist {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #bbf229;
+}
+
+.song__description_track {
+  font-size: 1.2rem;
+  color: #f0f6d2;
+}
+
+.song__process {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song__control {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14rem;
+  height: 0.25rem;
+  border-radius: 0.15rem;
+  background: black;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #f0f6d2;
+  width: 0.4rem;
+  height: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn {
+  transform: scale(1);
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  color: #f0f6d2;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  width: 14rem;
+}
+
+.time__current {
+  font-size: 1rem;
+  color: #bbf229;
+}
+
+.time__duration {
+  font-size: 1rem;
+  color: #bbf229;
+}
+
+.btn {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.btn__play-to-stop {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.btn__prev {
+  width: 2rem;
+  height: 2rem;
+}
+
+.btn__next {
+  width: 2rem;
+  height: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+}
+
+.footer__github {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+  transition: color 0.3s;
+}
+
+.footer__github:hover {
+  color: #b13737;
+}
+
+.footer__github_icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+.footer__year {
+  font-size: 20px;
+  cursor: default;
+}
+
+.footer__school_icon {
+  width: 200px;
+  height: 70px;
 }

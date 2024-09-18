@@ -7,13 +7,69 @@
   <title>Audio player</title>
 </head>
 <body>
+  <img src="assets/img/lemonade.png" class="image-background">
+
   <div class="wrapper">
-    <img src="assets/img/lemonade.png" class="image-background">
-    <audio src="assets/audio/beyonce.mp3" class="song"></audio>
-    <div class="container">
-      <button class="play-btn">Play audio</button>
-      <button class="pause-btn">Stop audio</button>
-    </div>
+
+    <audio class="song" >
+      <source src="assets/audio/beyonce.mp3" type="audio/mp3">
+    </audio>
+
+    <main class="container">
+      <div class="content">
+
+        <div class="song-image">
+          <img src="assets/img/lemonade.png" class="image__song">
+        </div>
+
+        <div class="player song">
+
+          <div>
+            <div class="song__description">
+              <p class="song__description_artist">Beyonce</p>
+              <p class="song__description_track">Don't Hurt Yourself</p>
+            </div>
+          </div>
+
+          <div class="song__process">
+
+            <input class="progress" type="range" id="progress-song" min="0" max="600" value="0">
+            <div class="time">
+              <div class="time__current">0:00</div>
+              <div class="time__duration">3:00</div>
+            </div>
+
+          </div>
+
+          <div class="song__control">
+            <div class="btn">
+              <img class="btn__play-to-stop" src="assets/svg/play.png" id="play-song">
+            </div>
+
+            <div class="btn">
+              <img class="btn__prev" src="assets/svg/backward.png" id="prev-song">
+            </div>
+
+            <div class="btn">
+              <img class="btn__next" src="assets/svg/forward.png" id="next-song">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+        <a class="footer__github" href="https://github.com/EvgenKham">
+          <img class="footer__github_icon" src="assets/svg/mark-github.png" alt="GitHub icon">
+            <p class="footer__github_text">My GitHub</p>
+        </a>
+        <p class="footer__year">2024-2025</p>
+        <a class="footer__school" href="https://rs.school/courses/javascript-preschool-ru">
+          <img class="footer__school_icon" src="assets/svg/rs_school.svg" alt="RS School">
+        </a>
+      </footer>
   </div>
   <script src="index.js"></script>
 </body>
