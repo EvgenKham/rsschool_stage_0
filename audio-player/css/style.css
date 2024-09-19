@@ -115,7 +115,7 @@ body {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: #f0f6d2;
+  background-color: #bbf229;
   width: 0.4rem;
   height: 0.5rem;
   border-radius: 10px;
@@ -130,6 +130,7 @@ input[type=range]::-webkit-slider-thumb {
 .btn:hover {
   transform: scale(1.2);
   color: #f0f6d2;
+  opacity: 0.7;
 }
 
 .time {

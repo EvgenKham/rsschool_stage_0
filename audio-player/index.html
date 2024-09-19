@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/svg/icon-headphones-48.png">
   <title>Audio player</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <img src="assets/img/lemonade.png" class="image-background">
@@ -24,30 +25,28 @@
 
         <div class="player song">
 
-          <div>
-            <div class="song__description">
-              <p class="song__description_artist">Beyonce</p>
-              <p class="song__description_track">Don't Hurt Yourself</p>
-            </div>
+          <div class="song__description">
+            <p class="song__description_artist"></p>
+            <p class="song__description_track">Don't Hurt Yourself</p>
           </div>
 
           <div class="song__process">
-
             <input class="progress" type="range" id="progress-song" min="0" max="600" value="0">
             <div class="time">
+
               <div class="time__current">0:00</div>
               <div class="time__duration">3:00</div>
             </div>
-
           </div>
 
           <div class="song__control">
-            <div class="btn">
-              <img class="btn__play-to-stop" src="assets/svg/play.png" id="play-song">
-            </div>
 
             <div class="btn">
               <img class="btn__prev" src="assets/svg/backward.png" id="prev-song">
+            </div>
+
+            <div class="btn">
+              <img class="btn__play-to-stop" src="assets/svg/play.png" id="play-song">
             </div>
 
             <div class="btn">
