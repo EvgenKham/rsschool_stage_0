@@ -27,11 +27,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.song__description_track');
   const currentTime = document.querySelector('.time__current');
   const durationTime = document.querySelector('.time__duration');
+  const progress = document.querySelector('.progress');
 
   let isPlay = false;
   let playNum = 0;
 
-
+  // progress.addEventListener('input', function () {
+  //   const percentage = progress.value;
+  //   progress.style.background = `linear-gradient(to right, blue ${percentage}%, gray ${percentage}%)`;
+  // });
 
   function updateSong(number){
     let currentSong = songs[number];
@@ -43,12 +47,43 @@ window.addEventListener('DOMContentLoaded', () => {
     track.textContent = currentSong['track'];
   }
 
+  function getTimeCorrect(date){
+    let time = Math.round(date);
+    let minutes = Math.floor( time / 60 );
+    let seconds  = time - (minutes * 60);
+    return [minutes, seconds];
+  }
+
   audio.onloadedmetadata = function(){
-      let time = Math.round(this.duration);
-      let minutes = Math.floor( time / 60 );
-      let seconds  = time - (minutes * 60);
-      durationTime.textContent = `${minutes}:${seconds}`
+    let [ minutes, seconds ] = getTimeCorrect(this.duration);
+    durationTime.textContent = `${minutes}:${seconds}`;
   };
+
+  audio.addEventListener('timeupdate', () => {
+    console.log(audio.currentTime)
+  });
+
+  setInterval(() => {
+    // progress.style.width = audio.currentTime / audio.duration * 100 + "%";
+    let [ minutes, seconds ] = getTimeCorrect(audio.currentTime);
+    let format = '';
+    if (minutes === 0){
+      if (seconds < 10){
+        format = `0:0${seconds}`;
+      } else {
+        format = `0:${seconds}`;
+      }
+    } else {
+      if (seconds < 10){
+        format = `${minutes}:0${seconds}`;
+      } else {
+        format = `${minutes}:${seconds}`;
+      }
+    }
+    currentTime.textContent = format;
+    // console.log(Math.round(audio.currentTime));
+  }, 1000);
+
 
 
   function playOrStop() {
@@ -61,6 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
       isPlay = false;
       playOrStopBtn.src = "assets/svg/play.png";
     }
+    // console.log(audio.currentTime.toFixed(0));
   };
 
   function playNext() {
@@ -92,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   updateSong(playNum);
-  console.log();
+  console.log(audio.currentTime);
 
   playOrStopBtn.addEventListener('click', playOrStop);
   prevBtn.addEventListener('click', playPrev);
