@@ -85,6 +85,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let [ minutes, seconds ] = convertTime(audio.currentTime);
     currentTime.textContent = formatTime(minutes, seconds);
     changeLineColor();
+    //Если трек закончился включается следующий
+    if(audio.ended)
+      playNext();
   }, 500);
 
   //Перемотка трека при изменении ползунка
