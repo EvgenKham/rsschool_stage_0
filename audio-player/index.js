@@ -31,15 +31,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let isPlay = false;
   let playNum = 0;
+  //Первоначальная загрузка трека на страницу
+  loadSong(playNum);
 
-  // progress.addEventListener('input', function () {
-  //   const percentage = progress.value;
-  //   progress.style.background = `linear-gradient(to right, blue ${percentage}%, gray ${percentage}%)`;
-  // });
-
-  function updateSong(number){
+  //Загрузка данных о треке на страницу
+  function loadSong(number){
     let currentSong = songs[number];
-
     background.src = currentSong['image'];
     audio.src = currentSong['src'];
     imgPlayer.src = currentSong['image'];
@@ -47,25 +44,23 @@ window.addEventListener('DOMContentLoaded', () => {
     track.textContent = currentSong['track'];
   }
 
-  function getTimeCorrect(date){
+  //Показ длительности трека (после загрузки самого трека)
+  audio.onloadedmetadata = function(){
+    let [ minutes, seconds ] = convertTime(this.duration);
+    durationTime.textContent = `${minutes}:${seconds}`;
+    progress.max = this.duration;
+  };
+
+  //Конвертация из секунд в минуты и секунды
+  function convertTime(date){
     let time = Math.round(date);
     let minutes = Math.floor( time / 60 );
     let seconds  = time - (minutes * 60);
     return [minutes, seconds];
   }
 
-  audio.onloadedmetadata = function(){
-    let [ minutes, seconds ] = getTimeCorrect(this.duration);
-    durationTime.textContent = `${minutes}:${seconds}`;
-  };
-
-  audio.addEventListener('timeupdate', () => {
-    console.log(audio.currentTime)
-  });
-
-  setInterval(() => {
-    // progress.style.width = audio.currentTime / audio.duration * 100 + "%";
-    let [ minutes, seconds ] = getTimeCorrect(audio.currentTime);
+  //Вывод времени в корректном виде (0:00)
+  function formatTime(minutes, seconds) {
     let format = '';
     if (minutes === 0){
       if (seconds < 10){
@@ -80,23 +75,42 @@ window.addEventListener('DOMContentLoaded', () => {
         format = `${minutes}:${seconds}`;
       }
     }
-    currentTime.textContent = format;
-    // console.log(Math.round(audio.currentTime));
-  }, 1000);
+    return format;
+  }
 
+  //Функция setInterval срабатывает через 0.5 секунд
+  // и выводит текущее время проигрывая трека
+  setInterval(() => {
+    progress.value = audio.currentTime;
+    let [ minutes, seconds ] = convertTime(audio.currentTime);
+    currentTime.textContent = formatTime(minutes, seconds);
+    changeLineColor();
+  }, 500);
 
+  //Перемотка трека при изменении ползунка
+  function rewind(event){
+    let value = event.target.value;
+    audio.currentTime = value;
+  };
+
+  //Изменение прогресса до и после ползунка
+  function changeLineColor(){
+    const value = (audio.currentTime / audio.duration) * 100;
+    progress.style.background = 'linear-gradient(to right, black ' + value + '%, white ' + value + '%)';
+  }
 
   function playOrStop() {
     if (!isPlay) {
       audio.play();
       isPlay = true;
       playOrStopBtn.src = "assets/svg/pause.png";
+      imgPlayer.style.transform = 'scale(1.2)';
     } else {
       audio.pause();
       isPlay = false;
       playOrStopBtn.src = "assets/svg/play.png";
+      imgPlayer.style.transform = 'scale(1)';
     }
-    // console.log(audio.currentTime.toFixed(0));
   };
 
   function playNext() {
@@ -106,8 +120,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if( playNum > 2 ){
       playNum = 0;
     }
-    updateSong(playNum);
-
+    loadSong(playNum);
     audio.play();
     isPlay = true;
     playOrStopBtn.src = "assets/svg/pause.png";
@@ -120,19 +133,16 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if( playNum > 2 ){
       playNum = 0;
     }
-    updateSong(playNum);
-
+    loadSong(playNum);
     audio.play();
     isPlay = true;
     playOrStopBtn.src = "assets/svg/pause.png";
   };
 
-  updateSong(playNum);
-  console.log(audio.currentTime);
-
   playOrStopBtn.addEventListener('click', playOrStop);
   prevBtn.addEventListener('click', playPrev);
   nextBtn.addEventListener('click', playNext);
-
+  progress.addEventListener('input', rewind);
+  progress.addEventListener('input', changeLineColor());
 });
 

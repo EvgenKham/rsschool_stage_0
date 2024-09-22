@@ -65,12 +65,19 @@ body {
   height: 70%;
 }
 
+.image__song {
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
 .player {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   flex-grow: 2;
   width: 100%;
+  padding-bottom: 0.5rem;
+  z-index: 10;
   background: #525252;
   background: linear-gradient(52deg, #525252 0%, #969696 49%, #2e002f 100%);
 }
@@ -103,6 +110,7 @@ body {
 .song__control {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .progress {
@@ -111,7 +119,7 @@ body {
   width: 14rem;
   height: 0.25rem;
   border-radius: 0.15rem;
-  background: black;
+  background: linear-gradient(to right, black 0%, white 0%);
   cursor: pointer;
 }
 
@@ -122,17 +130,12 @@ input[type=range]::-webkit-slider-thumb {
   height: 0.5rem;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.05s;
 }
 
-.btn {
-  transform: scale(1);
-  transition: all 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.2);
-  color: #f0f6d2;
-  opacity: 0.7;
+input[type=range]::-webkit-slider-thumb:hover {
+  width: 0.5rem;
+  height: 0.6rem;
 }
 
 .time {
@@ -156,11 +159,13 @@ input[type=range]::-webkit-slider-thumb {
 .btn {
   filter: invert(1);
   cursor: pointer;
+  transform: scale(1);
+  transition: all 0.3s;
 }
 
 .btn__play-to-stop {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: white;
 }
 
@@ -172,6 +177,12 @@ input[type=range]::-webkit-slider-thumb {
 .btn__next {
   width: 2rem;
   height: 2rem;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  color: #f0f6d2;
+  opacity: 0.7;
 }
 
 .footer {
