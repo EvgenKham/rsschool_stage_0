@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="icon" href="assets/icon-search-image-48.png">
   <title>Image Galery</title>
   <link rel="stylesheet" href="css/style.css">
@@ -12,8 +13,27 @@
 
   <div class="wrapper">
     <main>
-      <header></header>
-      <section></section>
+      <header class="header">
+        <div class="header__image logo">
+          <img class="logo__img" src="assets/photo-camera.svg" alt="logo-page">
+          <h1 class="logo__name">Unsplash API</h1>
+        </div>
+        <div class="header__search form">
+          <form class="form__container" action="" method="get">
+            <input class="form__container_enter" type="text" placeholder="Search...">
+            <!-- <i id="btn-search" class="fas fa-search fa-2x"></i> -->
+            <button class="form__container_btn" type="submit"></button>
+          </form>
+        </div>
+      </header>
+      <section class="contant">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </section>
     </main>
 
     <footer class="footer">
