@@ -14,13 +14,13 @@ body
   color: black
   font-size: 6.25%
 
-.image-background
-  position: absolute
-  width: 100%
-  width: 0 auto
-  height: 100%
-  z-index: -100
-  filter: blur(0.2rem)
+// .image-background
+//   position: absolute
+//   width: 100%
+//   width: 0 auto
+//   height: 100%
+//   z-index: -100
+//   filter: blur(0.2rem)
 
 .wrapper
   display: flex
@@ -80,8 +80,8 @@ body
       background: none
       border: none
       position: absolute
-      top: 1.5rem
-      right: 4rem
+      top: 2.8%
+      right: 5%
       &:hover
         font-size: 1rem
       &:before
@@ -91,14 +91,34 @@ body
         font-family: FontAwesome
         color: #324b4e
 
-.contant
+.content
   display: flex
   flex-wrap: wrap
+  justify-content: center
   width: 100%
   margin: 0 auto
   padding-left: 4%
   padding-right: 4%
-  gap: 1rem 2rem
+  padding-bottom: 1rem
+  gap: 1rem
+  transition: .1s linear
+  background: url(/assets/fall_forest.jpg) 50% 50%/cover no-repeat  fixed
+  // background-position: 50% 50%
+  // background-size: cover
+  // background-attachment: fixed
+
+.card
+  display: flex
+  width: 380px
+  height: 220px
+  margin-top: 15px
+  background-position: center
+  background-size: cover
+  border-radius: 2px
+  cursor: pointer
+  &__img
+    width: 380px
+    height: 220px
 
 .footer
   display: flex
@@ -106,6 +126,8 @@ body
   align-items: center
   width: 100%
   min-height: 100px
+  background: rgb(223,186,83)
+  background: linear-gradient(52deg, rgba(223,186,83,1) 0%, rgba(117,120,255,1) 49%, rgba(0,178,207,1) 100%)
   &__github
     display: flex
     color: black
