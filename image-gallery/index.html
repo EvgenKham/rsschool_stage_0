@@ -3,17 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="icon" href="assets/icon-search-image-48.png">
   <title>Image Galery</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <img src="assets/fall_forest.jpg" class="image-background">
+  <!-- <img src="assets/fall_forest.jpg" class="image-background"> -->
 
   <div class="wrapper">
     <main>
-      <header></header>
-      <section></section>
+      <header class="header">
+        <div class="header__image logo">
+          <img class="logo__img" src="assets/photo-camera.svg" alt="logo-page">
+          <h1 class="logo__name">Unsplash API</h1>
+        </div>
+        <div class="header__search form">
+          <form class="form__container" action="" method="get" autocomplete="off">
+            <input class="form__container_enter" type="text" placeholder="Search..." autofocus>
+            <!-- <i id="btn-search" class="fas fa-search fa-2x"></i> -->
+            <button class="form__container_btn" type="submit"></button>
+          </form>
+        </div>
+      </header>
+      <section class="content">
+        <!-- <div class="card">
+          <img class="card__img" src="assets/leaves-floating.jpg">
+        </div>
+        <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1726571175984-96bae5054c26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NTc4MTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjcyOTE0NjB8&ixlib=rb-4.0.3&q=80&w=1080"></div>
+        <div class="card"><img class="card__img" src="assets/leaves-on-pavement.jpg" alt=""></div>
+        <div class="card"><img class="card__img" src="assets/leaves-floating.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/road-in-autumn.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/leaves-on-pavement.jpg" alt=""></div>
+        <div class="card"><img class="card__img" src="assets/leaves-floating.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/road-in-autumn.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/leaves-on-pavement.jpg" alt=""></div>
+        <div class="card"><img class="card__img" src="assets/leaves-floating.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/road-in-autumn.jpg"></div>
+        <div class="card"><img class="card__img" src="assets/leaves-on-pavement.jpg" alt=""></div> -->
+      </section>
     </main>
 
     <footer class="footer">
