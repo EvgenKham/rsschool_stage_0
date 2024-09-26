@@ -31,6 +31,7 @@ body
   justify-content: space-between
   align-items: center
   width: 100%
+  min-height: 8vh
   margin: 0 auto
   padding-left: 4%
   padding-right: 4%
@@ -96,6 +97,7 @@ body
   flex-wrap: wrap
   justify-content: center
   width: 100%
+  min-height: 82vh
   margin: 0 auto
   padding-left: 4%
   padding-right: 4%
@@ -103,9 +105,6 @@ body
   gap: 1rem
   transition: .1s linear
   background: url(/assets/fall_forest.jpg) 50% 50%/cover no-repeat  fixed
-  // background-position: 50% 50%
-  // background-size: cover
-  // background-attachment: fixed
 
 .card
   display: flex
@@ -120,12 +119,22 @@ body
     width: 380px
     height: 220px
 
+.error
+  display: flex
+  width: 80%
+  &__text
+    display: flex
+    align-items: flex-start
+    text-align: center
+    font-size: 5rem
+
+
 .footer
   display: flex
   justify-content: space-around
   align-items: center
   width: 100%
-  min-height: 100px
+  min-height: 10vh
   background: rgb(223,186,83)
   background: linear-gradient(52deg, rgba(223,186,83,1) 0%, rgba(117,120,255,1) 49%, rgba(0,178,207,1) 100%)
   &__github
