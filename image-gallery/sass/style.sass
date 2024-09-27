@@ -57,7 +57,7 @@ body
 
 .form
   display: flex
-  width: 20rem
+  width: 16vw
   margin: 0 auto
   border-radius: 0.6rem
   transition: box-shadow 0.3s
@@ -72,8 +72,8 @@ body
     outline: none
   &__btn_submit
     position: absolute
-    top: 1rem
-    right: 3.3rem
+    top: 2vh
+    right: 4vw
     width: 2.5rem
     height: 2.5rem
     border: none
@@ -87,8 +87,8 @@ body
   &__btn_reset
     visibility: hidden
     position: absolute
-    top: 1rem
-    right: 21.1rem
+    top: 2vh
+    right: 18.3vw
     width: 2rem
     height: 2.5rem
     border: none
@@ -183,3 +183,47 @@ body
     &:hover
       transform: scale(1.2)
 
+@media ( max-width: 1920px )
+  .form
+    width: 19.5vw
+    &__btn_reset
+      top: 2.6vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.6vh
+
+@media ( max-width: 1700px )
+  .form
+    width: 20vw
+    &__btn_reset
+      top: 2.2vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.2vh
+
+@media ( max-width: 1440px )
+  .form
+    width: 20vw
+    &__btn_reset
+      top: 2.1vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.1vh
+
+@media ( max-width: 1200px )
+  .form
+    width: 25vw
+    &__btn_reset
+      top: 1.8vh
+      right: 26vw
+    &__btn_submit
+      top: 1.8vh
+
+@media ( max-width: 768px )
+  .form
+    width: 28vw
+    &__btn_reset
+      top: 1.5vh
+      right: 28vw
+    &__btn_submit
+      top: 1.5vh
