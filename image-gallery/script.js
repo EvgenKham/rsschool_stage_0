@@ -1,6 +1,8 @@
 const ACCESS_KEY = "WOeWPxyiF-rl3qmL0E5uxdKjIeQZ7taI2EKm04QtNQ8";
 const content = document.querySelector('.content');
-const form = document.querySelector('.form__container');
+const form = document.querySelector('.form');
+const input = document.querySelector('.form__enter');
+const resetBtn = document.querySelector('.form__btn_reset');
 
 //Получение данных по Unsplash API
 async function getPhotos(word = '') {
@@ -16,8 +18,8 @@ async function getPhotos(word = '') {
 
   const url = `https://api.unsplash.com/search/photos?query=${tag}&per_page=24&orientation=landscape&client_id=${ACCESS_KEY}`;
 
-  // const response = await fetch(url);
-  // const data = await response.json();
+  const response = await fetch(url);
+  const data = await response.json();
 
   if (response.status === 200) {
     const state = data.results;
@@ -73,6 +75,20 @@ function search(event) {
   getPhotos(data.get('search'))
 }
 
+//Кнопка сброса появляется/исчезает в зависимости от наличия текста
+function visibleReset (event) {
+  let resetIcon = event.target.nextElementSibling;
+  resetIcon.style.visibility = event.target.value ? 'visible' : 'hidden';
+}
+
+//Обработка события при нажатии на ресет и возврат фокуса
+function reset (event) {
+  event.target.style.visibility = 'hidden';
+  input.focus();
+}
+
 window.addEventListener('DOMContentLoaded', getPhotos);
 content.addEventListener('mouseover', changeBackground);
 form.addEventListener('submit', search);
+input.addEventListener('input', visibleReset);
+resetBtn.addEventListener('click', reset);
