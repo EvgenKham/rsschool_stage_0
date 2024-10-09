@@ -2,7 +2,8 @@ const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const TABLE = createTable();
-const LEVEL = {easy: 20, middle: 35, hard: 50};
+const LEVEL = {easy: 36, middle: 54, hard: 72};
+const cells = document.querySelectorAll('.cell');
 
 //Создание пустой таблицы 9*9
 function createTable() {
@@ -108,5 +109,41 @@ function fillInTable(table) {
 
 // console.table(TABLE);
 fillInTable(TABLE);
-console.table(TABLE);
+// console.table(TABLE);
 
+//Глубокое копирование заполненной таблицы
+function copyTable(table) {
+  return JSON.parse(JSON.stringify(table));
+}
+
+function deleteRandomValues(count, table) {
+
+  for (let i = 0; i < count; i++){
+
+    let randomRow = Math.floor(Math.random() * SIZE);
+    let randomCol = Math.floor(Math.random() * SIZE);
+
+    if(table[randomRow][randomCol] === 0){
+      i--;
+      continue;
+    }
+    table[randomRow][randomCol] = 0;
+  }
+
+  return table;
+}
+
+function renderShowTable() {
+  let copy = copyTable(TABLE);
+  let readyTable = deleteRandomValues(LEVEL.easy, copy).flat();
+
+  [...cells].forEach((item, index) => {
+    if (readyTable[index] !== 0){
+      item.innerHTML = readyTable[index];
+      item.classList.add('filled');
+    }
+  })
+
+}
+
+renderShowTable();
