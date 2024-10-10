@@ -17,11 +17,23 @@ body
 
 .content
   display: flex
-  justify-content: center
+  justify-content: flex-start
   align-items: center
   flex-direction: column
   width: 500px
   min-height: 90vh
+
+.setting
+  display: flex
+  justify-content: space-between
+  margin-top: 50px
+  width: 500px
+  margin-bottom: 30px
+  &__time
+    font-size: 22px
+  &__level
+    font-size: 22px
+    font-weight: 600
 
 .table
   display: flex
@@ -59,16 +71,31 @@ body
   background-color: #e4fafd
   cursor: default
 
-.manage
+.match
+  transition: all 0.3s
+  background-color: #92ff71
+
+.number
   display: flex
-  justify-content: space-between
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap
+  gap: 15px 50px
   margin-top: 50px
   width: 500px
-  &__time
-    font-size: 22px
-  &__level
-    font-size: 22px
+  &__btn
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 50px
+    height: 35px
+    font-size: 16px
     font-weight: 600
+    background-color: #adfee8
+    border: 1px solid black
+    border-radius: 3px
+    cursor: pointer
+
 
 .footer
   display: flex

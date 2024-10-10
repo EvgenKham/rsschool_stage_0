@@ -2,8 +2,9 @@ const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const TABLE = createTable();
-const LEVEL = {easy: 36, middle: 54, hard: 72};
+const LEVEL = {easy: 36, middle: 50, hard: 63};
 const cells = document.querySelectorAll('.cell');
+const renderTable = document.querySelector('.table');
 
 //Создание пустой таблицы 9*9
 function createTable() {
@@ -107,15 +108,17 @@ function fillInTable(table) {
   return false;
 }
 
-// console.table(TABLE);
+
 fillInTable(TABLE);
 // console.table(TABLE);
 
-//Глубокое копирование заполненной таблицы
+//Глубокое копирование заполненной таблицы,
+//для сохраненния исходной таблицы с верно заполненными числами
 function copyTable(table) {
   return JSON.parse(JSON.stringify(table));
 }
 
+//Удаление переданного количесво чисел таблицы в случайном порядке
 function deleteRandomValues(count, table) {
 
   for (let i = 0; i < count; i++){
@@ -133,6 +136,8 @@ function deleteRandomValues(count, table) {
   return table;
 }
 
+//Заполнение и вывод таблицы с недостающими цифрами
+// в зависимости от уровня сложности
 function renderShowTable() {
   let copy = copyTable(TABLE);
   let readyTable = deleteRandomValues(LEVEL.easy, copy).flat();
@@ -147,3 +152,33 @@ function renderShowTable() {
 }
 
 renderShowTable();
+
+//При нажатии на ячейку со значение подсвечивает все одинаковые значения
+function getClue(event) {
+  if (event.target.classList.contains('cell')){
+    removeHighlight(renderTable);
+    let value = parseInt(event.target.textContent);
+    addHighlight(renderTable, value);
+  }
+}
+
+//Поиск в таблице одинаковых значений и их подсвечивание
+function addHighlight(table, value) {
+  for (let cell of table.children) {
+    if (cell.classList.contains('filled')){
+      let item = parseInt(cell.textContent);
+      if (item === value) {
+        cell.classList.add('match');
+      }
+    }
+  }
+}
+
+//Удаление подсвеченных значений
+function removeHighlight(table) {
+  for (let cell of table.children){
+    cell.classList.remove('match');
+  }
+}
+
+renderTable.addEventListener('click', getClue);
