@@ -153,16 +153,17 @@ function renderShowTable() {
 
 renderShowTable();
 
-function activeCell(event) {
+//При нажатии на ячейку со значение подсвечивает все одинаковые значения
+function getClue(event) {
   if (event.target.classList.contains('cell')){
-    removeClue(renderTable);
+    removeHighlight(renderTable);
     let value = parseInt(event.target.textContent);
-    getClue(renderTable, value);
+    addHighlight(renderTable, value);
   }
 }
 
 //Поиск в таблице одинаковых значений и их подсвечивание
-function getClue(table, value) {
+function addHighlight(table, value) {
   for (let cell of table.children) {
     if (cell.classList.contains('filled')){
       let item = parseInt(cell.textContent);
@@ -173,11 +174,11 @@ function getClue(table, value) {
   }
 }
 
-//Подсвечивание предыдущих значений удаляется
-function removeClue(table) {
+//Удаление подсвеченных значений
+function removeHighlight(table) {
   for (let cell of table.children){
     cell.classList.remove('match');
   }
 }
 
-renderTable.addEventListener('click', activeCell);
+renderTable.addEventListener('click', getClue);
