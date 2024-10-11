@@ -5,6 +5,7 @@ const TABLE = createTable();
 const LEVEL = {easy: 36, middle: 50, hard: 63};
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
+const buttons = document.querySelector('.number');
 
 //Создание пустой таблицы 9*9
 function createTable() {
@@ -52,7 +53,7 @@ function isValidBox(value, cell, table) {
 
   for (let i = startRow; i < (startRow + BOX_SIZE); i++) {
     for (let j = startColumn; j < (startColumn + BOX_SIZE); j++){
-      if ((table[i][j] === value) && (i !== cell.row) && (j !== cell.column)){
+      if (table[i][j] === value && i !== cell.row && j !== cell.column){
         return false;
       }
     }
@@ -108,7 +109,6 @@ function fillInTable(table) {
   return false;
 }
 
-
 fillInTable(TABLE);
 // console.table(TABLE);
 
@@ -117,6 +117,8 @@ fillInTable(TABLE);
 function copyTable(table) {
   return JSON.parse(JSON.stringify(table));
 }
+
+const COPY_TABLE = copyTable(TABLE);
 
 //Удаление переданного количесво чисел таблицы в случайном порядке
 function deleteRandomValues(count, table) {
@@ -139,8 +141,8 @@ function deleteRandomValues(count, table) {
 //Заполнение и вывод таблицы с недостающими цифрами
 // в зависимости от уровня сложности
 function renderShowTable() {
-  let copy = copyTable(TABLE);
-  let readyTable = deleteRandomValues(LEVEL.easy, copy).flat();
+  // let copy = copyTable(TABLE);
+  let readyTable = deleteRandomValues(LEVEL.easy, COPY_TABLE).flat();
 
   [...cells].forEach((item, index) => {
     if (readyTable[index] !== 0){
@@ -158,18 +160,16 @@ function getClue(event) {
   if (event.target.classList.contains('cell')){
     removeHighlight(renderTable);
     let value = parseInt(event.target.textContent);
-    addHighlight(renderTable, value);
+    addHighlightEquals(renderTable, value);
   }
 }
 
 //Поиск в таблице одинаковых значений и их подсвечивание
-function addHighlight(table, value) {
+function addHighlightEquals(table, value) {
   for (let cell of table.children) {
-    if (cell.classList.contains('filled')){
-      let item = parseInt(cell.textContent);
-      if (item === value) {
-        cell.classList.add('match');
-      }
+    let item = parseInt(cell.textContent);
+    if (item === value) {
+      cell.classList.add('match');
     }
   }
 }
@@ -178,7 +178,53 @@ function addHighlight(table, value) {
 function removeHighlight(table) {
   for (let cell of table.children){
     cell.classList.remove('match');
+    cell.classList.remove('selected');
   }
 }
 
+//Выделение одной из незаполненных ячеек
+function selectCell(event) {
+  if (!(event.target.classList.contains('filled'))){
+    removeHighlight(renderTable);
+    event.target.classList.add('selected');
+  }
+}
+
+//Добавляет/удаляет значение в выбранную ячейку
+// в соответсвии с выбранным значением
+function addNumberToTable(event) {
+  let value = parseInt(event.target.textContent);
+
+  [...cells].forEach(cell => {
+    // removeError(renderTable);
+    // showError(value, renderTable);
+
+    if (cell.classList.contains('selected')) {
+
+      if (value){
+        cell.innerHTML = value;
+      }
+      if (isNaN( value )){
+        cell.innerHTML = '';
+      }
+    }
+  });
+}
+
+// function showError(value, cell, table){
+
+//   cell.classList.add('error');
+// }
+
+// function removeError(table){
+//   for (let cell of table.children) {
+//     cell.classList.remove('error');
+//   }
+// }
+
+
+
 renderTable.addEventListener('click', getClue);
+renderTable.addEventListener('click', selectCell);
+buttons.addEventListener('click', addNumberToTable);
+
