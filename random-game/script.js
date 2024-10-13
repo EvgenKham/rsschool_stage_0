@@ -5,6 +5,11 @@ const TABLE = createTable();
 const LEVEL = {easy: 36, middle: 50, hard: 63};
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
+const buttons = document.querySelector('.number');
+
+fillInTable(TABLE);
+const COPY_TABLE = copyTable(TABLE);
+renderShowTable();
 
 //Создание пустой таблицы 9*9
 function createTable() {
@@ -52,12 +57,50 @@ function isValidBox(value, cell, table) {
 
   for (let i = startRow; i < (startRow + BOX_SIZE); i++) {
     for (let j = startColumn; j < (startColumn + BOX_SIZE); j++){
-      if ((table[i][j] === value) && (i !== cell.row) && (j !== cell.column)){
+      if (table[i][j] === value && i !== cell.row && j !== cell.column){
         return false;
       }
     }
   }
   return true;
+}
+
+//Нахождение совпадающего числа в столбце
+function matchesInColumn(value, cell, table){
+  let match = undefined;
+  for (let i = 0; i < SIZE; i++) {
+    if (table[i][cell.column] === value && i !== cell.row){
+      match = {row: i, column: cell.column};
+    }
+  }
+  return match;
+}
+
+//Нахождение совпадающего числа в строке
+function matchesInRow(value, cell, table){
+  let match = undefined;
+  for (let i = 0; i < SIZE; i++) {
+    if (table[cell.row][i] === value && i !== cell.column){
+      match = {row: cell.row, column: i};
+    }
+  }
+  return match;
+}
+
+//Нахождение совпадающего числа в ячейке 3*3
+function matchesInBox(value, cell, table){
+  let match = undefined;
+  let startRow = cell.row - (cell.row % BOX_SIZE);
+  let startColumn = cell.column - (cell.column % BOX_SIZE);
+
+  for (let i = startRow; i < (startRow + BOX_SIZE); i++) {
+    for (let j = startColumn; j < (startColumn + BOX_SIZE); j++){
+      if (table[i][j] === value && i !== cell.row && j !== cell.column){
+        match = {row: i, column: j};
+      }
+    }
+  }
+  return match;
 }
 
 //Поиск пустой ячейки
@@ -108,10 +151,6 @@ function fillInTable(table) {
   return false;
 }
 
-
-fillInTable(TABLE);
-// console.table(TABLE);
-
 //Глубокое копирование заполненной таблицы,
 //для сохраненния исходной таблицы с верно заполненными числами
 function copyTable(table) {
@@ -139,8 +178,8 @@ function deleteRandomValues(count, table) {
 //Заполнение и вывод таблицы с недостающими цифрами
 // в зависимости от уровня сложности
 function renderShowTable() {
-  let copy = copyTable(TABLE);
-  let readyTable = deleteRandomValues(LEVEL.easy, copy).flat();
+  // let copy = copyTable(TABLE);
+  let readyTable = deleteRandomValues(LEVEL.easy, COPY_TABLE).flat();
 
   [...cells].forEach((item, index) => {
     if (readyTable[index] !== 0){
@@ -151,25 +190,21 @@ function renderShowTable() {
 
 }
 
-renderShowTable();
-
 //При нажатии на ячейку со значение подсвечивает все одинаковые значения
 function getClue(event) {
   if (event.target.classList.contains('cell')){
     removeHighlight(renderTable);
     let value = parseInt(event.target.textContent);
-    addHighlight(renderTable, value);
+    addHighlightEquals(renderTable, value);
   }
 }
 
 //Поиск в таблице одинаковых значений и их подсвечивание
-function addHighlight(table, value) {
+function addHighlightEquals(table, value) {
   for (let cell of table.children) {
-    if (cell.classList.contains('filled')){
-      let item = parseInt(cell.textContent);
-      if (item === value) {
-        cell.classList.add('match');
-      }
+    let item = parseInt(cell.textContent);
+    if (item === value) {
+      cell.classList.add('match');
     }
   }
 }
@@ -177,8 +212,138 @@ function addHighlight(table, value) {
 //Удаление подсвеченных значений
 function removeHighlight(table) {
   for (let cell of table.children){
-    cell.classList.remove('match');
+    cell.classList.remove('match', 'selected');
+  }
+}
+
+//Выделение одной из незаполненных ячеек
+function selectCell(event) {
+  if (!(event.target.classList.contains('filled'))){
+    removeHighlight(renderTable);
+    if (event.target.classList.contains('cell')){
+      event.target.classList.add('selected');
+    }
+  }
+}
+
+function removeError(table){
+  for (let cell of table.children){
+    cell.classList.remove('error');
+  }
+}
+
+//Добавляет/удаляет значение в выбранную ячейку
+// в соответсвии с выбранным значением
+function addNumberToTable(event) {
+  if (event.target.classList.contains('number__btn')){
+    let value = parseInt(event.target.textContent);
+    removeError(renderTable);
+
+    [...cells].forEach((cell, index) => {
+      if (cell.classList.contains('selected')) {
+
+        if (!isNaN( value ) && checkError(value, index, COPY_TABLE)){
+          cell.innerHTML = '';
+        }
+
+        if (value && !checkError(value, index, COPY_TABLE)){
+          cell.innerHTML = value;
+          addNumber(value, index);
+          if (checkSolve(TABLE, COPY_TABLE)){
+            setTimeout(() => winAnimation(), 500);
+            console.log('You win!!!')
+          }
+        }
+
+        if (isNaN( value )){
+          cell.innerHTML = '';
+          removeNumber(index);
+        }
+      }
+    });
+  }
+}
+
+function addNumber(value, index){
+  const row = Math.floor(index / SIZE);
+  const column = index % SIZE;
+  COPY_TABLE[row][column] = value;
+}
+
+function removeNumber(index){
+  const row = Math.floor(index / SIZE);
+  const column = index % SIZE;
+  COPY_TABLE[row][column] = 0;
+}
+
+function checkError(value, index, table){
+  const row = Math.floor(index / SIZE);
+  const column = index % SIZE;
+  const cell = {row, column};
+  const valid = (isValidColumn(value, cell, table)) &&
+                  (isValidRow(value, cell, table)) &&
+                  (isValidBox(value, cell, table));
+
+  if (!valid){
+    let errors = findError(value, cell, table);
+    errors.forEach(item => cells[item - 1].classList.add('error'));
+    return true;
+  }
+  return false;
+}
+
+function findError(value, cell, table){
+  let indexes = [];
+  const column = matchesInColumn(value, cell, table);
+  const row = matchesInRow(value, cell, table);
+  const box = matchesInBox(value, cell, table);
+  if (column !== undefined){
+    indexes.push(column);
+  }
+  if (row !== undefined){
+    indexes.push(row);
+  }
+  if (box !== undefined){
+    indexes.push(box);
+  }
+  return convertToCell(indexes);
+}
+
+//Конвертиртация индекса ячейки
+//например: из {row: 2, col: 3} в число 22
+function convertToCell(indexes){
+  return indexes.map(item => (item.row + 1) * 9 - (9 - (item.column + 1)));
+}
+
+//Проверка на правильность решения судоку
+function checkSolve(tableOne, tableTwo){
+  for (let row = 0; row < SIZE; row++){
+    for (let col = 0; col < SIZE; col++){
+      if (tableOne[row][col] != tableTwo[row][col]){
+        return false
+      }
+    }
+  }
+
+  return true;
+}
+
+function winAnimation(){
+  cells.forEach(cell => cell.classList.remove('error', 'selected', 'filled', 'match'));
+  for (let i = 0; i < cells.length; i++ ){
+    console.log();
+    setTimeout(() => cells[i].classList.add('win'),
+    500 + cells.length * 15 + 150 * i);
+    setTimeout(() => cells[i].classList.add('boom'),
+    500 + cells.length * 15 + 150 * cells.length);
   }
 }
 
 renderTable.addEventListener('click', getClue);
+renderTable.addEventListener('click', selectCell);
+buttons.addEventListener('click', addNumberToTable);
+window.addEventListener('DOMContentLoaded', () => {
+
+})
+
+
