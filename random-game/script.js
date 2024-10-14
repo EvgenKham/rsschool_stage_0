@@ -1,17 +1,19 @@
 const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const TABLE = createTable();
-const LEVEL = {easy: 36, middle: 50, hard: 63};
+const LEVEL = {easy: 1, middle: 50, hard: 63};
+
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
 const buttons = document.querySelector('.number');
-let timer = undefined;
 const START = document.querySelector('.btn-start');
 const USER_NAME = document.querySelector('.name input[type="text"');
+
+let timer = undefined;
 let userLevel = undefined;
 let userTime = 0;
 
+const TABLE = createTable();
 fillInTable(TABLE);
 const COPY_TABLE = copyTable(TABLE);
 
@@ -240,6 +242,7 @@ function removeError(table){
 
 //Добавляет/удаляет значение в выбранную ячейку
 // в соответсвии с выбранным значением
+// и каждый раз проверяем заполнена ли она
 function addNumberToTable(event) {
   if (event.target.classList.contains('number__btn')){
     let value = parseInt(event.target.textContent);
@@ -258,6 +261,8 @@ function addNumberToTable(event) {
           if (checkSolve(TABLE, COPY_TABLE)){
             setTimeout(() => winAnimation(), 200);
             stopClock();
+            saveResult(userLevel, USER_NAME.value, userTime);
+            setTimeout(showSaveResults(), 10000);
             console.log('Your time: ' + userTime + ' seconds');
             console.log(USER_NAME.value);
             console.log('You win!!!');
@@ -340,8 +345,8 @@ function checkSolve(tableOne, tableTwo){
 function winAnimation(){
   cells.forEach(cell => cell.classList.remove('error', 'selected', 'filled', 'match'));
   cells.forEach(cell => cell.classList.add('filled'));
+
   for (let i = 0; i < cells.length; i++ ){
-    console.log();
     setTimeout(() => cells[i].classList.add('win'),
     500 + cells.length * 15 + 100 * i);
     setTimeout(() => cells[i].classList.add('boom'),
@@ -363,12 +368,16 @@ function initClock(){
     if (minutes < 10 && seconds < 10){
       time.innerHTML = `Time  0${minutes} : 0${seconds}`;
     }
-    if (minutes < 10){
+    if (minutes < 10 && seconds > 10){
       time.innerHTML = `Time  0${minutes} : ${seconds}`;
     }
-    if (seconds < 10){
-      time.innerHTML = `Time  0${minutes} : 0${seconds}`;
+    if (minutes > 10 && seconds < 10){
+      time.innerHTML = `Time  ${minutes} : 0${seconds}`;
     }
+    if (minutes > 10 && seconds > 10){
+      time.innerHTML = `Time  ${minutes} : ${seconds}`;
+    }
+
     userTime = minutes * 60 + seconds;
   }, 1000);
 }
@@ -381,7 +390,7 @@ function startGame(){
   const fieldName = document.querySelector('.name');
   const levelShow = document.querySelector('.setting__level');
   const popup = document.querySelector('.popup');
-  // console.log(USER_NAME.value);
+
   if (!USER_NAME.value){
     fieldName.classList.add('name-error');
   } else {
@@ -411,6 +420,54 @@ function chooseLevel(){
 
 function removeNameError(event){
   event.target.parentElement.classList.remove('name-error');
+}
+
+//Сохранение последних 10 реезультатов игры
+function saveResult(level, name, time){
+  let key = localStorage.length;
+  let results = [];
+
+  if (key < 10){
+    localStorage.setItem(key, JSON.stringify({level, name, time}));
+  } else {
+    for (let i = 0; i < 10; i++){
+      results.push(JSON.parse(localStorage.getItem(i)));
+    }
+
+    localStorage.clear();
+    results.shift();
+
+    for (let i = 0; i < 9; i++){
+      localStorage.setItem(i, JSON.stringify(results[i]));
+    }
+
+    localStorage.setItem(9, JSON.stringify({level, name, time}));
+  }
+}
+
+function showSaveResults(){
+  // let level = document.querySelector('.result__level');
+  // let name = document.querySelector('.result__name');
+  // let time = document.querySelector('.result__time');
+  // level.innerHTML = `Level: ${userLevel}`;
+  // name.innerHTML = `Name: ${USER_NAME.value}`;
+  // time.innerHTML = `Time: ${userTime}`;
+
+  const popup = document.querySelector('.popup');
+  const popupContent = document.querySelector('.popup__content');
+  popupContent.innerHTML = `<p class="headline">Sudoku</p>
+        <p >Your result</p>
+        <div class="result">
+          <div class="result__level">Level: ${userLevel}</div>
+          <div class="result__name">Name: ${USER_NAME.value}</div>
+          <div class="result__time">Time: ${userTime}</div>
+        </div>
+        <p>Last 10 game results</p>
+        <div class="last-result">
+
+        </div>
+        <button class="btn-again">Again</button>`;
+  popup.classList.remove('popup-unvisible');
 }
 
 
