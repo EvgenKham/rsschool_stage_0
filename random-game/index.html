@@ -8,11 +8,39 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <div class="popup" id="popup-id">
+    <div class="popup__container">
+      <div class="popup__content">
+        <p class="headline">Sudoku</p>
+        <p >Choose level</p>
+        <div class="level">
+            <div class="level__btn">
+              <input type="radio" id="level-easy" name="radio" value="easy" checked>
+              <label for="level-easy">Easy</label>
+            </div>
+            <div class="level__btn">
+              <input type="radio" id="level-middle" name="radio" value="middle">
+              <label for="level-middle">Middle</label>
+            </div>
+            <div class="level__btn">
+              <input type="radio" id="level-hard" name="radio" value="hard">
+              <label for="level-hard">Hard</label>
+            </div>
+
+        </div>
+        <form class="name" action="">
+          <input type="text" placeholder="Nickname">
+        </form>
+        <button class="btn-start">Start</button>
+      </div>
+    </div>
+  </div>
+
   <div class="wrapper">
     <main class="content">
       <div class="setting">
-        <div class="setting__level">Level: Easy</div>
-        <div class="setting__time">Time: 0:00</div>
+        <div class="setting__level">Level:</div>
+        <div class="setting__time">Time 00:00</div>
       </div>
       <div class="table">
         <div class="cell"></div>

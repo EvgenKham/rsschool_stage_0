@@ -6,10 +6,15 @@ const LEVEL = {easy: 36, middle: 50, hard: 63};
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
 const buttons = document.querySelector('.number');
+let timer = undefined;
+const START = document.querySelector('.btn-start');
+const USER_NAME = document.querySelector('.name input[type="text"');
+let userLevel = undefined;
+let userTime = 0;
 
 fillInTable(TABLE);
 const COPY_TABLE = copyTable(TABLE);
-renderShowTable();
+
 
 //Создание пустой таблицы 9*9
 function createTable() {
@@ -177,9 +182,9 @@ function deleteRandomValues(count, table) {
 
 //Заполнение и вывод таблицы с недостающими цифрами
 // в зависимости от уровня сложности
-function renderShowTable() {
+function renderShowTable(level) {
   // let copy = copyTable(TABLE);
-  let readyTable = deleteRandomValues(LEVEL.easy, COPY_TABLE).flat();
+  let readyTable = deleteRandomValues(level, COPY_TABLE).flat();
 
   [...cells].forEach((item, index) => {
     if (readyTable[index] !== 0){
@@ -220,6 +225,7 @@ function removeHighlight(table) {
 function selectCell(event) {
   if (!(event.target.classList.contains('filled'))){
     removeHighlight(renderTable);
+    removeError(renderTable);
     if (event.target.classList.contains('cell')){
       event.target.classList.add('selected');
     }
@@ -237,8 +243,8 @@ function removeError(table){
 function addNumberToTable(event) {
   if (event.target.classList.contains('number__btn')){
     let value = parseInt(event.target.textContent);
+    let result = 0;
     removeError(renderTable);
-
     [...cells].forEach((cell, index) => {
       if (cell.classList.contains('selected')) {
 
@@ -250,8 +256,11 @@ function addNumberToTable(event) {
           cell.innerHTML = value;
           addNumber(value, index);
           if (checkSolve(TABLE, COPY_TABLE)){
-            setTimeout(() => winAnimation(), 500);
-            console.log('You win!!!')
+            setTimeout(() => winAnimation(), 200);
+            stopClock();
+            console.log('Your time: ' + userTime + ' seconds');
+            console.log(USER_NAME.value);
+            console.log('You win!!!');
           }
         }
 
@@ -330,18 +339,86 @@ function checkSolve(tableOne, tableTwo){
 
 function winAnimation(){
   cells.forEach(cell => cell.classList.remove('error', 'selected', 'filled', 'match'));
+  cells.forEach(cell => cell.classList.add('filled'));
   for (let i = 0; i < cells.length; i++ ){
     console.log();
     setTimeout(() => cells[i].classList.add('win'),
-    500 + cells.length * 15 + 150 * i);
+    500 + cells.length * 15 + 100 * i);
     setTimeout(() => cells[i].classList.add('boom'),
-    500 + cells.length * 15 + 150 * cells.length);
+    500 + cells.length * 15 + 100 * cells.length);
   }
 }
+
+function initClock(){
+  let seconds = 0;
+  let minutes = 0;
+  const time = document.querySelector('.setting__time');
+
+  timer = setInterval(() =>{
+    seconds++;
+    if (seconds === 60){
+      seconds = 0;
+      minutes++;
+    }
+    if (minutes < 10 && seconds < 10){
+      time.innerHTML = `Time  0${minutes} : 0${seconds}`;
+    }
+    if (minutes < 10){
+      time.innerHTML = `Time  0${minutes} : ${seconds}`;
+    }
+    if (seconds < 10){
+      time.innerHTML = `Time  0${minutes} : 0${seconds}`;
+    }
+    userTime = minutes * 60 + seconds;
+  }, 1000);
+}
+
+function stopClock(){
+  clearInterval(timer);
+}
+
+function startGame(){
+  const fieldName = document.querySelector('.name');
+  const levelShow = document.querySelector('.setting__level');
+  const popup = document.querySelector('.popup');
+  // console.log(USER_NAME.value);
+  if (!USER_NAME.value){
+    fieldName.classList.add('name-error');
+  } else {
+    chooseLevel();
+    initClock(timer);
+    levelShow.innerHTML = `Level: ${userLevel}`;
+    popup.classList.add('popup-unvisible');
+  }
+}
+
+function chooseLevel(){
+  let radios = document.querySelectorAll('input[type="radio"]');
+
+  for (let radio of radios){
+    if (radio.checked){
+      let choice = 0;
+      for (let [key, value] of Object.entries(LEVEL)){
+        if (key === radio.value) {
+          userLevel = key;
+          choice = value;
+        }
+      }
+        renderShowTable(choice);
+      };
+  }
+}
+
+function removeNameError(event){
+  event.target.parentElement.classList.remove('name-error');
+}
+
 
 renderTable.addEventListener('click', getClue);
 renderTable.addEventListener('click', selectCell);
 buttons.addEventListener('click', addNumberToTable);
+START.addEventListener('click', startGame);
+USER_NAME.addEventListener('click', removeNameError);
 window.addEventListener('DOMContentLoaded', () => {
 
 })
