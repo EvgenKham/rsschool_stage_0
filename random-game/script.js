@@ -1,7 +1,9 @@
 const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const LEVEL = {easy: 36, middle: 50, hard: 61};
+const LEVEL = {easy: 1, middle: 50, hard: 61};
+// const countKeysStorage = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+let countStorageKeys = 0;
 
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
@@ -246,8 +248,8 @@ function removeError(table){
 function addNumberToTable(event) {
   if (event.target.classList.contains('number__btn')){
     let value = parseInt(event.target.textContent);
-    let result = 0;
     removeError(renderTable);
+
     [...cells].forEach((cell, index) => {
       if (cell.classList.contains('selected')) {
 
@@ -422,20 +424,30 @@ function removeNameError(event){
 
 //Сохранение последних 10 реезультатов игры
 function saveResult(level, name, time){
-  let key = localStorage.length;
+
+  //Считаем количество ключей с именем от "0" до "9"
+  //не включая ключи с другими именами
+  for(let key in localStorage) {
+    if (typeof(+key) === 'number'){
+      if (+key >= 0 && +key <= 9){
+        countStorageKeys++;
+      }
+    }
+  }
+
   let results = [];
 
-  if (key < 10){
-    localStorage.setItem(key, JSON.stringify({level, name, time}));
+  if (countStorageKeys < 10){
+    localStorage.setItem(countStorageKeys, JSON.stringify({level, name, time}));
   } else {
-    for (let i = 0; i < 10; i++){
+    for (let i = 1; i < 10; i++){
       results.push(JSON.parse(localStorage.getItem(i)));
     }
 
     localStorage.clear();
     results.shift();
 
-    for (let i = 0; i < 9; i++){
+    for (let i = 1; i < 9; i++){
       localStorage.setItem(i, JSON.stringify(results[i]));
     }
 
@@ -448,16 +460,14 @@ function showSaveResults(){
   buildPopupResult();
   popup.classList.remove('popup-unvisible');
   const again = document.querySelector('.btn_again');
-  again.addEventListener('click', () => {
-    location.reload();
-  });
+  again.addEventListener('click', () => location.reload());
 }
 
 function buildPopupResult(){
   const popupContent = document.querySelector('.popup__content');
 
   let fragment = new DocumentFragment();
-  for (let i = localStorage.length - 1; i >= 0; i--){
+  for (let i = countStorageKeys; i >= 0; i--){
     let result = JSON.parse(localStorage.getItem(i));
     let row = document.createElement('tr');
     let tdLevel = document.createElement('th');
@@ -493,7 +503,7 @@ function buildPopupResult(){
             </tbody>
           </table>
         </div>
-        <p class="headline">Last ${localStorage.length} game results</p>
+        <p class="headline">Last ${countStorageKeys + 1} game results</p>
         <div class="result">
           <table>
             <thead>
