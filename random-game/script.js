@@ -1,17 +1,19 @@
 const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const TABLE = createTable();
-const LEVEL = {easy: 36, middle: 50, hard: 63};
+const LEVEL = {easy: 1, middle: 50, hard: 63};
+
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
 const buttons = document.querySelector('.number');
-let timer = undefined;
-const START = document.querySelector('.btn-start');
+const START = document.querySelector('.btn_start');
 const USER_NAME = document.querySelector('.name input[type="text"');
+
+let timer = undefined;
 let userLevel = undefined;
 let userTime = 0;
 
+const TABLE = createTable();
 fillInTable(TABLE);
 const COPY_TABLE = copyTable(TABLE);
 
@@ -240,6 +242,7 @@ function removeError(table){
 
 //Добавляет/удаляет значение в выбранную ячейку
 // в соответсвии с выбранным значением
+// и каждый раз проверяем заполнена ли она
 function addNumberToTable(event) {
   if (event.target.classList.contains('number__btn')){
     let value = parseInt(event.target.textContent);
@@ -258,9 +261,8 @@ function addNumberToTable(event) {
           if (checkSolve(TABLE, COPY_TABLE)){
             setTimeout(() => winAnimation(), 200);
             stopClock();
-            console.log('Your time: ' + userTime + ' seconds');
-            console.log(USER_NAME.value);
-            console.log('You win!!!');
+            saveResult(userLevel, USER_NAME.value, userTime);
+            setTimeout(showSaveResults, 11000);
           }
         }
 
@@ -340,8 +342,8 @@ function checkSolve(tableOne, tableTwo){
 function winAnimation(){
   cells.forEach(cell => cell.classList.remove('error', 'selected', 'filled', 'match'));
   cells.forEach(cell => cell.classList.add('filled'));
+
   for (let i = 0; i < cells.length; i++ ){
-    console.log();
     setTimeout(() => cells[i].classList.add('win'),
     500 + cells.length * 15 + 100 * i);
     setTimeout(() => cells[i].classList.add('boom'),
@@ -363,12 +365,16 @@ function initClock(){
     if (minutes < 10 && seconds < 10){
       time.innerHTML = `Time  0${minutes} : 0${seconds}`;
     }
-    if (minutes < 10){
+    if (minutes < 10 && seconds > 10){
       time.innerHTML = `Time  0${minutes} : ${seconds}`;
     }
-    if (seconds < 10){
-      time.innerHTML = `Time  0${minutes} : 0${seconds}`;
+    if (minutes > 10 && seconds < 10){
+      time.innerHTML = `Time  ${minutes} : 0${seconds}`;
     }
+    if (minutes > 10 && seconds > 10){
+      time.innerHTML = `Time  ${minutes} : ${seconds}`;
+    }
+
     userTime = minutes * 60 + seconds;
   }, 1000);
 }
@@ -381,7 +387,7 @@ function startGame(){
   const fieldName = document.querySelector('.name');
   const levelShow = document.querySelector('.setting__level');
   const popup = document.querySelector('.popup');
-  // console.log(USER_NAME.value);
+
   if (!USER_NAME.value){
     fieldName.classList.add('name-error');
   } else {
@@ -413,14 +419,100 @@ function removeNameError(event){
   event.target.parentElement.classList.remove('name-error');
 }
 
+//Сохранение последних 10 реезультатов игры
+function saveResult(level, name, time){
+  let key = localStorage.length;
+  let results = [];
+
+  if (key < 10){
+    localStorage.setItem(key, JSON.stringify({level, name, time}));
+  } else {
+    for (let i = 0; i < 10; i++){
+      results.push(JSON.parse(localStorage.getItem(i)));
+    }
+
+    localStorage.clear();
+    results.shift();
+
+    for (let i = 0; i < 9; i++){
+      localStorage.setItem(i, JSON.stringify(results[i]));
+    }
+
+    localStorage.setItem(9, JSON.stringify({level, name, time}));
+  }
+}
+
+function showSaveResults(){
+  const popup = document.querySelector('.popup');
+  buildPopupResult();
+  popup.classList.remove('popup-unvisible');
+  const again = document.querySelector('.btn_again');
+  again.addEventListener('click', () => {
+    location.reload();
+  });
+}
+
+function buildPopupResult(){
+  const popupContent = document.querySelector('.popup__content');
+
+  let fragment = new DocumentFragment();
+  for (let i = 9; i >= 0; i--){
+    let result = JSON.parse(localStorage.getItem(i));
+    let row = document.createElement('tr');
+    let tdLevel = document.createElement('th');
+    let tdName = document.createElement('th');
+    let tdTime = document.createElement('th');
+    tdLevel.innerHTML = result.level;
+    tdName.innerHTML = result.name;
+    tdTime.innerHTML = result.time;
+    row.append(tdLevel);
+    row.append(tdName);
+    row.append(tdTime);
+    fragment.append(row);
+  }
+
+  popupContent.innerHTML = `<p class="headline">Your result</p>
+        <div class="result">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody class="user-result">
+              <tr>
+                <td>${userLevel}</td>
+                <td>${USER_NAME.value}</td>
+                <td>${userTime}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="headline">Last 10 game results</p>
+        <div class="result">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody class="last-results">
+
+            </tbody>
+          </table>
+        </div>
+        <button class="btn_again">Again</button>`;
+
+        const lastResults = document.querySelector('.last-results');
+        lastResults.append(fragment);
+}
 
 renderTable.addEventListener('click', getClue);
 renderTable.addEventListener('click', selectCell);
 buttons.addEventListener('click', addNumberToTable);
 START.addEventListener('click', startGame);
 USER_NAME.addEventListener('click', removeNameError);
-window.addEventListener('DOMContentLoaded', () => {
-
-})
-
-
