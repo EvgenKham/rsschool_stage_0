@@ -1,7 +1,7 @@
 const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const LEVEL = {easy: 36, middle: 50, hard: 62};
+const LEVEL = {easy: 36, middle: 50, hard: 61};
 
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
@@ -262,6 +262,7 @@ function addNumberToTable(event) {
             setTimeout(() => winAnimation(), 200);
             stopClock();
             saveResult(userLevel, USER_NAME.value, userTime);
+            // localStorage.clear();
             setTimeout(showSaveResults, 11000);
           }
         }
@@ -456,15 +457,17 @@ function buildPopupResult(){
   const popupContent = document.querySelector('.popup__content');
 
   let fragment = new DocumentFragment();
-  for (let i = 9; i >= 0; i--){
+  for (let i = localStorage.length - 1; i >= 0; i--){
     let result = JSON.parse(localStorage.getItem(i));
     let row = document.createElement('tr');
     let tdLevel = document.createElement('th');
     let tdName = document.createElement('th');
     let tdTime = document.createElement('th');
-    tdLevel.innerHTML = result.level;
-    tdName.innerHTML = result.name;
-    tdTime.innerHTML = result.time;
+    if (localStorage.length !== 0){
+      tdLevel.innerHTML = result.level;
+      tdName.innerHTML = result.name;
+      tdTime.innerHTML = result.time;
+    }
     row.append(tdLevel);
     row.append(tdName);
     row.append(tdTime);
@@ -482,7 +485,7 @@ function buildPopupResult(){
               </tr>
             </thead>
             <tbody class="user-result">
-              <tr>
+              <tr class="row">
                 <td>${userLevel}</td>
                 <td>${USER_NAME.value}</td>
                 <td>${userTime}</td>
@@ -490,7 +493,7 @@ function buildPopupResult(){
             </tbody>
           </table>
         </div>
-        <p class="headline">Last 10 game results</p>
+        <p class="headline">Last ${localStorage.length} game results</p>
         <div class="result">
           <table>
             <thead>
