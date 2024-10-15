@@ -6,7 +6,7 @@ const LEVEL = {easy: 1, middle: 50, hard: 63};
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
 const buttons = document.querySelector('.number');
-const START = document.querySelector('.btn-start');
+const START = document.querySelector('.btn_start');
 const USER_NAME = document.querySelector('.name input[type="text"');
 
 let timer = undefined;
@@ -262,10 +262,7 @@ function addNumberToTable(event) {
             setTimeout(() => winAnimation(), 200);
             stopClock();
             saveResult(userLevel, USER_NAME.value, userTime);
-            setTimeout(showSaveResults(), 10000);
-            console.log('Your time: ' + userTime + ' seconds');
-            console.log(USER_NAME.value);
-            console.log('You win!!!');
+            setTimeout(showSaveResults, 11000);
           }
         }
 
@@ -446,38 +443,76 @@ function saveResult(level, name, time){
 }
 
 function showSaveResults(){
-  // let level = document.querySelector('.result__level');
-  // let name = document.querySelector('.result__name');
-  // let time = document.querySelector('.result__time');
-  // level.innerHTML = `Level: ${userLevel}`;
-  // name.innerHTML = `Name: ${USER_NAME.value}`;
-  // time.innerHTML = `Time: ${userTime}`;
-
   const popup = document.querySelector('.popup');
-  const popupContent = document.querySelector('.popup__content');
-  popupContent.innerHTML = `<p class="headline">Sudoku</p>
-        <p >Your result</p>
-        <div class="result">
-          <div class="result__level">Level: ${userLevel}</div>
-          <div class="result__name">Name: ${USER_NAME.value}</div>
-          <div class="result__time">Time: ${userTime}</div>
-        </div>
-        <p>Last 10 game results</p>
-        <div class="last-result">
-
-        </div>
-        <button class="btn-again">Again</button>`;
+  buildPopupResult();
   popup.classList.remove('popup-unvisible');
+  const again = document.querySelector('.btn_again');
+  again.addEventListener('click', () => {
+    location.reload();
+  });
 }
 
+function buildPopupResult(){
+  const popupContent = document.querySelector('.popup__content');
+
+  let fragment = new DocumentFragment();
+  for (let i = 9; i >= 0; i--){
+    let result = JSON.parse(localStorage.getItem(i));
+    let row = document.createElement('tr');
+    let tdLevel = document.createElement('th');
+    let tdName = document.createElement('th');
+    let tdTime = document.createElement('th');
+    tdLevel.innerHTML = result.level;
+    tdName.innerHTML = result.name;
+    tdTime.innerHTML = result.time;
+    row.append(tdLevel);
+    row.append(tdName);
+    row.append(tdTime);
+    fragment.append(row);
+  }
+
+  popupContent.innerHTML = `<p class="headline">Your result</p>
+        <div class="result">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody class="user-result">
+              <tr>
+                <td>${userLevel}</td>
+                <td>${USER_NAME.value}</td>
+                <td>${userTime}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="headline">Last 10 game results</p>
+        <div class="result">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody class="last-results">
+
+            </tbody>
+          </table>
+        </div>
+        <button class="btn_again">Again</button>`;
+
+        const lastResults = document.querySelector('.last-results');
+        lastResults.append(fragment);
+}
 
 renderTable.addEventListener('click', getClue);
 renderTable.addEventListener('click', selectCell);
 buttons.addEventListener('click', addNumberToTable);
 START.addEventListener('click', startGame);
 USER_NAME.addEventListener('click', removeNameError);
-window.addEventListener('DOMContentLoaded', () => {
-
-})
-
-
