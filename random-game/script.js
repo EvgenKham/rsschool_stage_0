@@ -1,7 +1,7 @@
 const SIZE = 9;
 const BOX_SIZE = 3;
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const LEVEL = {easy: 1, middle: 50, hard: 63};
+const LEVEL = {easy: 36, middle: 50, hard: 62};
 
 const cells = document.querySelectorAll('.cell');
 const renderTable = document.querySelector('.table');
