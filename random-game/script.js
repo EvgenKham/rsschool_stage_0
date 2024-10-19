@@ -467,7 +467,9 @@ function buildPopupResult(){
 
   let fragment = new DocumentFragment();
   for (let i = countStorageKeys; i >= 0; i--){
+
     let result = JSON.parse(localStorage.getItem(i));
+    console.log(countStorageKeys);
     let row = document.createElement('tr');
     let tdLevel = document.createElement('th');
     let tdName = document.createElement('th');
