@@ -1,0 +1,229 @@
+html
+  scroll-behavior: smooth
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: Georgia, 'Times New Roman', Times, serif
+  color: black
+  font-size: 6.25%
+
+// .image-background
+//   position: absolute
+//   width: 100%
+//   width: 0 auto
+//   height: 100%
+//   z-index: -100
+//   filter: blur(0.2rem)
+
+.wrapper
+  display: flex
+  flex-direction: column
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  min-height: 8vh
+  margin: 0 auto
+  padding-left: 4%
+  padding-right: 4%
+  background: rgb(223,186,83)
+  background: linear-gradient(52deg, rgba(223,186,83,1) 0%, rgba(117,120,255,1) 49%, rgba(0,178,207,1) 100%)
+  &__image
+    padding-top: 1%
+    padding-bottom: 1%
+
+.logo
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 20rem
+  &__img
+    width: 3rem
+    height: 3rem
+  &__name
+    font-size: 2rem
+    font-weight: 600
+    cursor: default
+    user-select: none
+
+.form
+  display: flex
+  width: 16vw
+  margin: 0 auto
+  border-radius: 0.6rem
+  transition: box-shadow 0.3s
+  &:focus-within
+    box-shadow: 4px 4px 60px 15px rgba(34, 60, 80, 0.8)
+  &__enter
+    width: 100%
+    height: 2.5rem
+    padding-left: 2rem
+    border: 0.1rem solid gray
+    border-radius: 0.6rem
+    outline: none
+  &__btn_submit
+    position: absolute
+    top: 2vh
+    right: 4vw
+    width: 2.5rem
+    height: 2.5rem
+    border: none
+    background-color: transparent
+    cursor: pointer
+    &::before
+      content: "\f002"
+      font-family: FontAwesome
+      font-size: 1rem
+      color: black
+  &__btn_reset
+    visibility: hidden
+    position: absolute
+    top: 2vh
+    right: 18.3vw
+    width: 2rem
+    height: 2.5rem
+    border: none
+    background-color: transparent
+    cursor: pointer
+    &::before
+      content: "\f00d"
+      font-family: FontAwesome
+      font-size: 1rem
+      color: black
+      transition: visibility 0.3s, opacity 0.3s ease
+      opacity: 0
+
+.form__enter:not(:placeholder-shown) + .form__btn_reset::before
+  opacity: 1
+  visibility: visible
+
+.content
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  width: 100%
+  min-height: 82vh
+  margin: 0 auto
+  padding-left: 4%
+  padding-right: 4%
+  padding-bottom: 1rem
+  gap: 1rem
+  transition: .1s linear
+  background: url(/assets/fall_forest.jpg) 50% 50%/cover no-repeat  fixed
+
+.card
+  display: flex
+  width: 380px
+  height: 220px
+  margin-top: 15px
+  background-position: center
+  background-size: cover
+  border-radius: 2px
+  cursor: pointer
+  &__img
+    width: 380px
+    height: 220px
+    transform: scale(1)
+    transition: transform 0.3s
+    &:hover
+      transform: scale(1.1)
+
+.error
+  display: flex
+  width: 80%
+  &__text
+    display: flex
+    align-items: flex-start
+    text-align: center
+    font-size: 5rem
+
+
+.footer
+  display: flex
+  justify-content: space-around
+  align-items: center
+  width: 100%
+  min-height: 10vh
+  background: rgb(223,186,83)
+  background: linear-gradient(52deg, rgba(223,186,83,1) 0%, rgba(117,120,255,1) 49%, rgba(0,178,207,1) 100%)
+  &__github
+    display: flex
+    align-items: center
+    color: black
+    text-decoration: none
+    font-size: 3rem
+    transform: scale(1)
+    transition: all 0.3s
+    &:hover
+      transform: scale(1.2)
+    &_icon
+      width: 48px
+      height: 48px
+      margin-right: 10px
+    &_text
+      font-size: 2rem
+  &__year
+    font-size: 2rem
+    cursor: default
+    user-select: none
+  &__school_icon
+    width: 200px
+    height: 70px
+    transform: scale(1)
+    transition: all 0.3s
+    &:hover
+      transform: scale(1.2)
+
+@media ( max-width: 1920px )
+  .form
+    width: 19.5vw
+    &__btn_reset
+      top: 2.6vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.6vh
+
+@media ( max-width: 1700px )
+  .form
+    width: 20vw
+    &__btn_reset
+      top: 2.2vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.2vh
+
+@media ( max-width: 1440px )
+  .form
+    width: 20vw
+    &__btn_reset
+      top: 2.1vh
+      right: 21.7vw
+    &__btn_submit
+      top: 2.1vh
+
+@media ( max-width: 1200px )
+  .form
+    width: 25vw
+    &__btn_reset
+      top: 1.8vh
+      right: 26vw
+    &__btn_submit
+      top: 1.8vh
+
+@media ( max-width: 768px )
+  .form
+    width: 28vw
+    &__btn_reset
+      top: 1.5vh
+      right: 28vw
+    &__btn_submit
+      top: 1.5vh
