@@ -73,6 +73,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   position: relative
   height: 100%
   margin: 0 auto
+  overflow-x: hidden
 
 .header
   position: absolute
@@ -306,6 +307,7 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   &__slider
     display: flex
     justify-content: space-between
+    transform: translate(0px, 0px)
     &_card
       display: flex
       flex-direction: column
@@ -325,9 +327,22 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
   &__button-container_item
       width: 260px
 
+.swipe
+  transform: translate(0px, 0px)
+  transition: 0.4s ease-in-out
+.left
+  transform: translate(-1700px, 0px)
+
+.right
+  transform: translate(1700px, 0px)
+
+
+
 .pet
   &_image
     margin-bottom: 30px
+    width: 270px
+    border-radius: 9px 9px 0 0
   &_name
     font-family: Georgia
     font-weight: 400
@@ -630,11 +645,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
 //Styles for pets-page
 
-.wrapper-pets
-  display: flex
-  flex-direction: column
-  justify-content: center
-
 .pets
   &__logo
     &_title
@@ -766,6 +776,15 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     &:hover
       border: 2px solid $color-primary-light
       background: $color-primary-light
+
+// .scroll
+//   scroll-behavior: smooth
+//   transition: transform 1s
+//   animation-timing-function: ease-in-out
+//   &__right
+//     right: 1000px
+//   &__left
+//     left: -1000px
 
 @media (max-width: 1279px)
 
@@ -902,10 +921,33 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     max-width: 708px
     padding-bottom: 0
 
-@media (max-width: 767px)
+@media (max-width: 767.90px)
 
-  .header__nav
-    display: none
+  .nav-menu
+    position: fixed
+    top: -30px
+    right: -350px
+    width: 320px
+    min-height: 100vh
+    background: $color-dark-3xl
+    z-index: 10
+    transition: 0.5s all
+    padding-bottom: 100px
+    &__list
+      flex-direction: column
+      justify-content: space-evenly
+      align-items: center
+      height: 327px
+      padding-bottom: 0
+    &__list-item
+      margin-right: 0px
+      font-size: 20px
+    &__item
+      font-size: 32px
+      line-height: 160%
+
+  .nav-menu_active
+    right: -4.5%
 
   .burger
     display: block
@@ -914,8 +956,9 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
     top: 19px
     right: 30px
     height: 22px
-    z-index: 12
+    z-index: 100
     opacity: 1
+    transition: 0.3s all
     cursor: pointer
     span
       display: block
@@ -923,23 +966,28 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
       width: 100%
       background: $color-primary
       margin-bottom: 8px
-      transition: 0.3s all
       &:last-child
         margin-bottom: 0px
 
   .burger_active
-    z-index: 11
-    span
-      margin-bottom: -2px
-      &:nth-child(1)
-        transform: translateY(3px) rotate(-45deg)
-      &:nth-child(2)
-        display: none
-      &:nth-child(3)
-        transform: translateY(3px) rotate(45deg)
+    z-index: 100
+    transition: 0.3s all
+    transform: rotate(90deg)
 
   .burger-pets span
     background: $color-dark-l
+
+  .background-pets-menu
+    background-color: $color-light-xl
+
+  .backgroun-opacity
+    position: relative
+    background-color: rgba(41, 41, 41, 0.6)
+    transition: all 0.3s linear
+    opacity: 0.6
+
+  .menu-opened
+    overflow: hidden
 
 @media (max-width: 720px)
 
@@ -1139,3 +1187,6 @@ $start-screen-gradient-background: url(../assets/images/noise_transparent@2x.png
 
   .header
     width: 88%
+
+  .nav-menu_active
+    right: -6.75%
